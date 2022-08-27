@@ -1,0 +1,311 @@
+:root{
+    --main-radius: 5px;
+    --main-padding:5px;
+}
+
+.container{
+    /* position: absolute; */
+    
+    display: grid;
+    height: 150vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr 1.2fr 1.2fr 1.2fr 0.2fr 0.8fr;
+    grid-template-areas: 
+    "nav nav nav nav nav"
+    "vacio main main main main"
+    "vacio titulo titulo titulo titulo"
+    "sidebar contenido1 contenido2 contenido3 contenido4"
+    "sidebar contenido5 contenido6 contenido7 contenido8"
+    "sidebar contenido9 contenido10 contenido11 contenido12"
+    "sidebar paginado paginado paginado paginado"
+    "footer footer footer footer footer";
+    grid-gap: 0.2rem;
+}
+
+.menu-inicio ul {
+    text-align: center;
+    float: none;
+    margin-left: 314px;
+}
+
+.wrapper {
+    left: 1%;
+    width: 60%;
+}
+
+
+.filtroProductos{
+    padding-left: 60px;
+}
+
+.filtroProductos h4{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.vacio{
+    grid-area: vacio;
+}
+
+nav{
+    background: pink;
+    grid-area: nav;
+}
+
+main{
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+/* Banner encima de los productos */
+.bannerProductos img{
+    height: 170px;
+    width: 900px;
+    object-fit: cover;
+    display:block;
+    margin:auto;
+    border-radius: 3px;
+}
+
+
+.card {
+    margin: 0 auto;
+    width: 80%;
+    background: rgb(255, 255, 255);
+}
+
+.card .imgBx{
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+}
+.card:hover .imgBx img{
+    transform: scale(1.03);
+}
+
+.acciones{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.acciones li{
+    position: relative;
+    list-style: none;
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    cursor: pointer;
+    transform: translateX(60px);
+    transition: transform .4s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.acciones li:nth-child(2){
+    transition-delay: 0.15s;
+}
+
+.acciones li:nth-child(3){
+    transition-delay: 0.3s;
+}
+
+ .card:hover .acciones li{
+    transform: translateX(0px);
+}
+
+
+.acciones li:hover{
+    background: #757575;
+    color: #fff;
+}
+
+.acciones li span{
+    position: absolute;
+    right: 50px;
+    transform: translateY(-8%) translateX(-2px);
+    white-space: nowrap;
+    padding: 4px 6px;
+    background: #fff;
+    color: #333;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+
+.acciones li span::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.acciones li:hover span{
+    opacity: 1;
+}
+ .card .content{
+    padding: 20px;
+
+}
+
+.card .content .productName h3{
+    font-size: 18px;
+    font-weight: 545;
+    color: #333;
+    margin: 5px;
+    font-size: 20px;
+    font-weight: 600;
+}
+ .card .content .precio_card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+ .card .content .precio_card h2{
+    font-size:15px;
+    font-weight: 600;
+}
+
+.card .content .precio_card .rating .fa{
+    color: gold;
+    cursor: pointer;
+}
+
+/*  */
+
+
+.sidebar{
+    grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+.contenido1{
+    grid-area: contenido1;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+.contenido2{
+    grid-area: contenido2;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+.contenido3{
+    grid-area: contenido3;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+.contenido3{
+    grid-area: contenido3;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido4{
+    grid-area: contenido4;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido5{
+    grid-area: contenido5;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido6{
+    grid-area: contenido6;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido7{
+    grid-area: contenido7;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido8{
+    grid-area: contenido8;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido9{
+    grid-area: contenido9;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido10{
+    grid-area: contenido10;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido11{
+    grid-area: contenido11;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.contenido12{
+    grid-area: contenido12;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.paginado{
+    grid-area: paginado;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+.titulo{
+    grid-area: titulo;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    text-align: center;
+    padding-bottom: 25px;
+}
+footer{
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+@media only screen and (max-width: 600px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+        "nav"
+        "sidebar"
+        "main"
+        "contenido1"
+        "contenido2"
+        "contenido3"
+        "footer";
+    }
+}

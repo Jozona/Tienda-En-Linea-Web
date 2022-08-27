@@ -1,0 +1,32 @@
+
+.regresarBtn {
+    background-color: #01c272;
+}
+
+.login_box {
+    font-family: sans-serif;
+    width: 520px;
+    height: 620px;
+    background-color: #5de8ae;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 20px 60px;
+    border-radius: 10px;
+}
+
+.slogan{
+    color: white;
+}
+
+.btn_login{
+    color: white;
+    background-color: black;
+}
+
+.registrar a{
+    color: white;
+}

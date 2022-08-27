@@ -1,0 +1,306 @@
+:root{
+    --white-light: rgba(255, 255, 255, 0.5);
+    --alice-blue: #f8f9fa;
+    --carribean-green: #40c9a2;
+    --gray: #ededed;
+}
+.anuncios *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+.anuncios body{
+    font-family: 'Quicksand', sans-serif;
+    max-height: 80vh;
+}
+
+/* Utility stylings */
+.anuncios img{
+    width: 100%;
+    display: block;
+}
+.anuncios .container{
+    width: 88vw;
+    margin: 0 auto;
+    
+}
+.anuncios .lg-title,
+.anuncios .md-title,
+.anuncios .sm-title{
+    font-family: 'Roboto', sans-serif;
+    padding: 0.6rem 0;
+    text-transform: capitalize;
+}
+.anuncios .lg-title{
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 1.3rem 0;
+    opacity: 0.9;
+}
+.anuncios .md-title{
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+.anuncios .sm-title{
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.anuncios .text-light{
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    opacity: 0.5;
+    margin: 0.4rem 0;
+}
+
+/* product section */
+.anuncios .products{
+    background: var(--alice-blue);
+    padding: 3.2rem 0;
+}
+.anuncios .products .text-light{
+    text-align: center;
+    width: 70%;
+    margin: 0.9rem auto;
+}
+.anuncios .product{
+    margin: 2rem;
+    position: relative;
+}
+.anuncios .product-content{
+    background: var(--gray);
+    padding: 3rem 0.5rem 2rem 0.5rem;
+    cursor: pointer;
+}
+.anuncios .product-img{
+    background: var(--white-light);
+    box-shadow: 0 0 20px 10px var(--white-light);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: background 0.5s ease;
+}
+.anuncios .product-btns{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.anuncios .btn-cart, .btn-buy{
+    background: transparent;
+    border: 1px solid black;
+    padding: 0.8rem 0;
+    width: 125px;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.6s ease;
+}
+.anuncios .btn-cart{
+    background: black;
+    color: white;
+}
+.anuncios .btn-cart:hover{
+    background: var(--carribean-green);
+}
+.anuncios .btn-buy{
+    background: white;
+}
+.anuncios .btn-buy:hover{
+    background: var(--carribean-green);
+    color: #fff;
+}
+.anuncios .product-info{
+    background: white;
+    padding: 2rem;
+}
+.anuncios .product-info-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.anuncios .rating span{
+    color: var(--carribean-green);
+}
+.anuncios .product-name{
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.anuncios .product-price{
+    padding-top: 0.6rem;
+    padding-right: 0.6rem;
+    display: inline-block;
+}
+.anuncios .product-price:first-of-type{
+    text-decoration: line-through;
+    color: var(--carribean-green);
+}
+.anuncios .product-img img{
+    transition: transform 0.6s ease;
+}
+.anuncios .product:hover .product-img img{
+    transform: scale(1.1);
+}
+.anuncios .product:hover .product-img{
+    background: var(--carribean-green);
+}
+.anuncios .product:hover .product-btns{
+    opacity: 1;
+}
+.anuncios .off-info .sm-title{
+    background: var(--carribean-green);
+    color: white;
+    display: inline-block;
+    padding: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    z-index: 1;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+/* product collection */
+.anuncios .product-collection{
+    padding: 3.2rem 0;
+}
+.anuncios .product-col-left{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/aviso1.jpg") center/cover no-repeat;
+    opacity: 0.9;
+}
+.anuncios .product-col-r-top{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/verano.png") center/cover no-repeat;
+    opacity: 0.9;
+}
+.anuncios .flex{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 0vh;
+    padding: 2rem 1.5rem 3.2rem;
+    margin: 5px;
+}
+.anuncios .product-col-r-bottom > div:first-child{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/perso.jpg") center/cover no-repeat;
+    opacity: 0.9;
+}
+.anuncios .product-col-r-bottom > div:last-child{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("../img/pinata.jpg") center/cover no-repeat;
+    opacity: 0.9;
+}
+.anuncios .product-col-content{
+    text-align: center;
+    color: white;
+}
+.anuncios .product-collection .text-light{
+    opacity: 1;
+    font-size: 0.8;
+    font-weight: 400;
+    line-height: 1.7;
+}
+.anuncios .btn-dark{
+    background: #757575;
+    color: rgb(255, 255, 255);
+    outline: 0;
+    border-radius: 25px;
+    padding: 0.7rem 1.9rem;
+    border: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.anuncios .btn-dark:hover{
+    background: var(--carribean-green);
+}
+
+
+
+
+
+
+
+/* Media Queries */
+@media screen and (min-width: 202px){
+    .anuncios .product-items{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .anuncios .product-col-r-bottom{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .anuncios .product-col-left{
+        height: 51.5vh;
+    }
+    .anuncios .flex{
+        height: 35.2vh;
+    }
+}
+
+
+
+
+@media screen and (min-width: 992px){
+    .anuncios .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .anuncios .product-col-r-bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .anuncios .product-col-left{
+        height: 51.5vh;
+    }
+    .anuncios .flex{
+        height: 35.2vh;
+    }
+}
+@media screen and (min-width: 1200px){
+    .anuncios .product-items{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .anuncios .product{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .anuncios .products .text-light{
+        width: 50%;
+    }
+    .anuncios .product-col-left{
+        height: 51.5vh;
+    }
+    .anuncios .flex{
+        height: 35.2vh;
+    }
+}
+
+@media screen and (min-width: 1336px){
+    .anuncios .product-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .anuncios .product-collection-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .anuncios .flex{
+        height: 35.2vh;
+    }
+    .anuncios .product-col-left{
+        height: 71.5vh;
+    }
+}

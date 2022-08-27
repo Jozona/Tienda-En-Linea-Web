@@ -1,0 +1,297 @@
+.cart-page{
+    margin: 80px auto;
+    width: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 85%;
+    background-color: #faf6f600;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #ed686833;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 4%;
+}
+
+.small-container th{
+    text-align: left;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    background: pink;
+    font-weight: normal;
+    font-weight:bolder;
+    text-align: left;
+    box-shadow: 0px 5px 10px #f9dbdb33;
+    
+
+}
+
+.small-container .borderTB{
+    border-radius: 20px 0px 0px 0px;
+}
+
+.small-container .borderTB2{
+    border-radius: 0px 20px 0px 0px;
+}
+
+
+.small-container td{
+    padding: 10px 5px;
+}
+
+.small-container td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.small-container td a{
+    color: #86a6f7;
+    font-size: 12px;
+}
+
+.small-container td img{
+    object-fit: cover;
+    width: 20%;
+    height: 120px;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #f9dbdb33;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.total-price table{
+    border-top: 3px solid pink;
+    width: 39%;
+    max-width: 500px;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+
+@media (max-width: 1080px) {
+    .small-container td img{
+        width: 50%;
+    }
+    
+}
+
+.botones{
+    justify-content: space-between;
+  flex-direction: column;
+  height: 5vh;
+  display: flex;
+  position: relative;
+}
+
+.botonPagar{
+    position: relative;
+bottom: 20px;
+right: 20px;
+width: 110px;
+left: 85%;
+}
+
+.botonCancear{
+    position: relative;
+bottom: -13px;
+right: 20px;
+width: 110px;
+left: 3%;
+}
+
+
+/* General button style */
+.botonPagar {
+    border: none;
+    font-family: 'Lato';
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 11px 80px;
+    display: inline-block;
+    margin: 0px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  
+  .botonPagar:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  /* Pseudo elements for icons */
+  .botonPagar:before {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  
+  /* Icon separator */
+  .botonPagar-sep {
+    padding: 25px 60px 25px 120px;
+  }
+  
+  .botonPagar:before {
+    background: rgba(0,0,0,0.15);
+  }
+  
+  /* Button 1 */
+  .botonPagar {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  .botonPagar:hover {
+    background: #2980b9;
+  }
+  
+  .botonPagar:active {
+    background: #2980b9;
+    top: 2px;
+  }
+  
+  .botonPagar:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+  
+  /* Button 2 */
+  .botonPagar {
+    background: #2ecc71;
+    color: #fff;
+  }
+  
+  .botonPagar:hover {
+    background: #27ae60;
+  }
+  
+  .botonPagar:active {
+    background: #27ae60;
+    top: 0px;
+  }
+  
+  .botonPagar:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+  
+  /* Button 3 */
+  .btn-3 {
+    background: #e74c3c;
+    color: #fff;
+  }
+  
+  .btn-3:hover {
+    background: #c0392b;
+  }
+  
+  .btn-3:active {
+    background: #c0392b;
+    top: 2px;
+  }
+  
+  .btn-3:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+  
+  /* Button 3 */
+  .btn-4 {
+    background: #34495e;
+    color: #fff;
+  }
+  
+  .btn-4:hover {
+    background: #2c3e50;
+  }
+  
+  .btn-4:active {
+    background: #2c3e50;
+    top: 0px;
+  }
+  
+  .btn-4:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+  
+  /* Icons */
+  
+  .icon-cart{
+      font-size: 12px;
+      line-height: -60;
+  }
+
+  .icon-cart:before {
+    content: "\f07a";
+  }
+  
+  .icon-heart:before {
+    content: "\f55a";
+  }
+  
+  .icon-info:before {
+    content: "\f05a";
+  }
+  
+  .icon-send:before {
+    content: "\f1d8";
+  }

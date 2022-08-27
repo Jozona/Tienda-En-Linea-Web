@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuenta</title>
+  <link rel="icon" href="./img/logologo2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <link rel="stylesheet" href="./css/flash.css">
+
+  <script src="https://kit.fontawesome.com/9c8b8bf025.js" crossorigin="anonymous"></script>
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/cuenta.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/stylePagProductos.css">
+  <link rel="stylesheet" href="./css/searchbarcuenta.css">
+
+  <!-- Onboard -->
+  <link rel="stylesheet" href="./css/flash.css">
+  <link rel="stylesheet" href="./css/onBoarding.css">
+
+  <link rel="stylesheet" href="./css/navBar/hamBar.css">
+
+  <style>
+    @media (min-width: 2560px) {
+      .wrapper {
+        left: 11%;
+        width: 60%;
+        top: 20px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      .wrapper {
+        left: 14%;
+        width: 70%;
+        top: 20px;
+      }
+      .search-input .icon {
+        left: 520px;
+      }
+      .menu-inicio ul {
+    text-align: center;
+    float: none;
+    margin-left: 459px;
+    bottom: 864px;
+    position: absolute;
+}
+    }
+
+    @media (min-width: 1440px) {
+      .wrapper {
+        left: -30px;
+        width: 60%;
+        top: 20px;
+        height: 20px;
+      }
+
+      .search-input .autocom-box {
+        /* padding: 10px 8px; */
+        max-height: 100px;
+        position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="onboarding-btn" style="display: none;">Show Demo</button>
+
+  <div class="onboarding-overlay"></div>
+
+  <div class="onboarding-container">
+    <div class="content">
+      <a href="#" class="skip-btn">Skip</a>
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="image">
+            <img style="height: 550px; object-fit: cover;" src="./img/Pink Online Shopping Instagram Post.png" alt=""
+              srcset="">
+          </div>
+
+          <h3>Paso 1</h3>
+          <p>
+            Navega por nuestro variado catálogo de productos de luces y juguetes de fiesta.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="image">
+            <img style="height: 550px; object-fit: cover;" src="./img/Pink Online Shopping Instagram Post.png" alt=""
+              srcset="">
+
+          </div>
+
+          <h3>Paso 2</h3>
+          <p>
+            Agrega al carrito cualquier producto que desees comprar. Se vera reflejado en tu carrito personal.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="image">
+            <img style="height: 550px; object-fit: cover;" src="./img/Pink Online Shopping Instagram Post.png" alt=""
+              srcset="">
+
+          </div>
+
+          <h3>Paso 3</h3>
+          <p>
+            Ingresa tu método de pago, dirección y finaliza la compra.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="image">
+            <img style="height: 550px; object-fit: cover;" src="./img/Pink Online Shopping Instagram Post.png" alt=""
+              srcset="">
+
+          </div>
+
+          <h3>¡Gracias por visitar nuestra página!</h3>
+          <p>
+            Si tienes alguna duda, no dudes en contactarnos por WhatsApp, Correo o teléfono.
+          </p>
+        </div>
+      </div>
+
+      <button class="next-btn">Next</button>
+    </div>
+  </div>
+
+
+  <!-- MENU  -->
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <div class="elfsight-app-f4184e07-a4ed-4aa2-8ca3-3a3059c160a3"></div>
+  <div class="menu-top">
+    <a href="index.html" style="left: 40px; width: 100px;"><img class="logo-menu" src="./img/logologo2.png"
+        alt="Inicio"></a>
+    <div class="wrapper" style="z-index: 100; position: absolute;">
+      <div class="search-input">
+        <input type="text" placeholder="Escribe para buscar un producto...">
+        <div class="autocom-box" style="position:relative;">
+          <ul>
+            <li>Sombreros</li>
+            <li>Estrellas de luz</li>
+            <li>Lentes de luz</li>
+            <li>Navidad</li>
+            <li>Luces azules</li>
+          </ul>
+
+        </div>
+        <div class="icon">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="menuAcciones">
+      <ul>
+        <li><a href="./login.html" style="font-size: 16;">Log in <i class="fa-solid fa-user"></i></a></li>
+        <li><a href="./registro.html" style="font-size: 16;">Sign in <i class="fa-solid fa-right-to-bracket"></i></a>
+        </li>
+        <li><a class="btnOnBoarding" href="#"><i class="fa-solid fa-clipboard-question"></i></a></li>
+        <li><a href="./carrito.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  <nav class="menu-inicio">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn-open-menu"></i>
+      <p class="textMenu">Menú</p>
+      <i class="fas fa-times" id="btn-menu-cancel"></i>
+    </label>
+
+
+
+    <ul>
+      <li><a href="./index.html">Inicio</a></li>
+      <li><a href="./productos.html">Categorías</a></li>
+      <li><a href="https://logoblinkee.com/">Blinkees personalizados</a></li>
+      <li><a href="./preguntas.html">Preguntas frecuentes</a></li>
+      <li><a href="./aboutUs.html">Sobre nosotros</a></li>
+      <li><a href="./platillaProductos.html">Todos los productos</a></li>
+
+    </ul>
+  </nav>
+
+  <div class="container bootstrap snippets bootdey">
+    <div class="row">
+      <!-- BEGIN USER PROFILE -->
+      <div class="col-md-12">
+        <div class="grid profile">
+          <div class="grid-header">
+            <div class="col-xs-2">
+              <img src="./img/blank-profile-picture-973460__480.webp" class="img-circle" alt="logo">
+            </div>
+            <div class="col-xs-7">
+              <h3>Nombre usuario</h3>
+              <p>@usuario</p>
+              <p>Socio desde hace menos de un año</p>
+            </div>
+            <div class="col-xs-3 text-right">
+              <p>
+                <a href="#" title="Everyone can see your profile">
+                  <i class="fa-solid fa-user-pen"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="grid-body">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#profile" data-toggle="tab">Perfil</a></li>
+              <li class=""><a href="#timeline" data-toggle="tab">Pedidos</a></li>
+              <li class=""><a href="#settings" data-toggle="tab">Preferencias</a></li>
+            </ul>
+            <div class="tab-content">
+              <!-- BEGIN PROFILE -->
+              <div class="tab-pane active" id="profile">
+                <p class="lead">Mi perfil</p>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p><strong>Email:</strong> <a href="soengsouy.com">soengsouy.khmer09@gmail.com</a>
+                    </p>
+                    <p><strong>Nombre(s):</strong> <a href="soengsouy.com">soengsouy.com</a></p>
+                    <p><strong>Apellido(s):</strong> Web Designer / Web Developer</p>
+                    <p><strong>Fecha de nacimiento:</strong> July 24<sup>th</sup>, 2018</p>
+                    <p><strong>Método de pago preferente:</strong> PayPal</p>
+                  </div>
+                  <div class="col-md-6">
+                    <p><strong>Dirección:</strong> Sen Sok City, PP, Cambodia</p>
+                    <p><strong>Teléfono:</strong> (+885) 09666686371</p>
+                    <p><strong>Rating promedio:</strong> <span class="text-yellow"><i class="fa fa-star"></i><i
+                          class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                          class="fa fa-star-half-o"></i></span></p>
+                  </div>
+                </div>
+              </div>
+              <!-- END PROFILE -->
+
+              <!-- BEGIN TIMELINE -->
+              <div class="tab-pane" id="timeline">
+                <p class="lead">Estatus de último pedido</p>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="timeline-centered">
+                      <article class="timeline-entry">
+                        <div class="timeline-entry-inner">
+                          <time class="timeline-time" datetime="2014-01-10T03:45"><span>11:41
+                              AM</span> <span>Ayer</span></time>
+
+                          <div class="timeline-icon bg-primary">
+                            <i class="fa-solid fa-building-circle-arrow-right"></i>
+                          </div>
+
+                          <div class="timeline-label">
+                            <h2><a href="#">El paquete salio de nuestra bodega.</span></h2>
+                            <p>El paquete salio de Seoul, Korea y se encuentra en ruta a nuestra distribuidora.</p>
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="timeline-entry left-aligned">
+                        <div class="timeline-entry-inner">
+                          <time class="timeline-time" datetime="2014-01-10T03:45"><span>08:12
+                              AM</span> <span>Hoy</span></time>
+
+                          <div class="timeline-icon bg-warning">
+                            <i class="fa-solid fa-building-circle-check"></i>
+                          </div>
+
+                          <div class="timeline-label">
+                            <h2><a href="#">Llego con repartidor</a></h2>
+                            <p>El paquete fue despachado en las instalaciones de UPS.
+                            </p>
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="timeline-entry">
+                        <div class="timeline-entry-inner">
+                          <time class="timeline-time" datetime="2014-01-10T03:45"><span>02:10
+                              PM</span> <span>15/06/2014</span></time>
+
+                          <div class="timeline-icon bg-danger">
+                            <i class="fa-solid fa-truck"></i>
+                          </div>
+
+                          <div class="timeline-label">
+                            <h2><a href="#">En camino</h2>
+                            <blockquote>El paquete salio de las instalaciones de nuestro repartidor y se encuentra en
+                              camino.
+                            </blockquote>
+                            <img src="assets/image/logo.png" class="img-responsive img-rounded full-width" alt=""
+                              width="50%">
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="timeline-entry begin">
+                        <div class="timeline-entry-inner">
+                          <div class="timeline-icon bg-default">
+                            <i class="fa fa-laptop"></i>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END TIMELINE -->
+
+              <!-- BEGIN PHOTOS -->
+              <div class="tab-pane" id="photos">
+                <p class="lead">My Photos</p>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="popup-gallery">
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 2"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 6"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 7"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 8"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                      <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a> <a
+                        href="https://via.placeholder.com/128x100/" title="Photo 1"><img
+                          src="https://via.placeholder.com/128x100/" alt=""></a>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+              <!-- END PHOTOS -->
+
+              <!-- BEGIN SETTINGS -->
+              <div class="tab-pane" id="settings">
+                <p class="lead">Otro</p>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-horizontal">
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">¿Quién te recomendó Blinkee.com?</label>
+                        <div class="col-sm-2">
+                          <input id="inputJQuery" type="text" /></br> <button id="btnJQuery">Enviar</button>
+                        </div>
+                        <label class="col-sm-2 control-label">Promociones por teléfono</label>
+                        <div class="col-sm-2">
+                          <input type="checkbox" />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Contacto que te recomendó Blinkee.com (recibirá una sorpresa):</label>
+                        <div class="col-sm-2">
+                          <div id="divJQuery" style="background:#01c272;height:30px;width:0px;position:absolute;"></div>
+                          <p id="contactoJQuery">Contacto</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END SETTINGS -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END USER PROFILE -->
+    </div>
+  </div>
+  <section class="footer" style="overflow-y: hidden;">
+
+
+    <div class="social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-snapchat"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+
+
+
+    <ul class="list">
+      <li>
+        <a href="./index.html">Inicio</a>
+      </li>
+      <li>
+        <a href="#">Servicios</a>
+      </li>
+      <li>
+        <a href="#">Sobre nosotros</a>
+      </li>
+      <li>
+        <a href="#">Terminos</a>
+      </li>
+      <li>
+        <a href="#">Politica de privacidad</a>
+      </li>
+    </ul>
+
+    <div class="pago" style="overflow-x:hidden;">
+      <img src="./img/pago.png" alt="">
+    </div>
+
+    <p class="copyright">
+      LMAD FCFM @ 2022
+    </p>
+
+  </section>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript"></script>
+  <script src="./js/searchBar.js"></script>
+  <script src="./js/searchBarScript.js"></script>
+  <script src="./js/onBoarding.js"></script>
+
+  <!-- Funcion JQuery -->
+  <script>
+    $(document).ready(function(){
+      $("#btnJQuery").click(function(){
+        var div = $("#divJQuery");
+        div.animate({width: '150px', opacity: '1'}, "slow");
+        div.animate({width: '0px', opacity: '1'}, "slow");
+        var str = $("#inputJQuery").val();
+        if(str == ""){
+          $('#contactoJQuery').text('N/A');
+        }else{
+          $('#contactoJQuery').text(str);
+        }
+      });
+    });
+    </script>
+</body>
+
+</html>

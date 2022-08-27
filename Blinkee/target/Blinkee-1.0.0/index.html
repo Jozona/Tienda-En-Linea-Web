@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blinkee</title>
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <link rel="stylesheet" href="./css/flash.css">
+
+    <!-- ===== Link Swiper's CSS ===== -->
+<!-- ===== Link Swiper's CSS ===== -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- ===== Fontawesome CDN Link ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/9c8b8bf025.js" crossorigin="anonymous"></script>
+  <!-- Script cambio de pagina -->
+  <script defer src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+  <script defer src="./js/swupScript.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/styleMP.css">
+  <link rel="stylesheet" href="./css/searchBarStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/swupStyle.css">
+
+
+
+</head>
+
+<body>
+  <div class="whole" style="overflow-x: hidden; position: relative;">
+
+      <div class="top-info transition-fade" id="loginUser">
+      <a href="registro.html">Regístrate <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+      <a href="login.html">Inicia sesión <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+    </div>
+    <!-- MENU  -->
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-f4184e07-a4ed-4aa2-8ca3-3a3059c160a3"></div>
+    <nav class="menu-inicio">
+      <input type="checkbox" id="check">
+      <label for="check">
+        <i class="fas fa-bars" id="btn-open-menu"></i>
+        <i class="fas fa-times" id="btn-menu-cancel"></i>
+      </label>
+
+      <a href="index.html" style="left: 40px;"><img class="logo-menu" src="./img/logoNuevo2.png" alt="Inicio"></a>
+      <div class="wrapper" style="z-index: 100; position: absolute;">
+        <div class="search-input">
+          <input type="text" placeholder="Escribe para buscar un producto...">
+          <div class="autocom-box" style="position:relative;">
+              <ul>
+                  <li>Sombreros</li>
+                  <li>Estrellas de luz</li>
+                  <li>Lentes de luz</li>
+                  <li>Navidad</li>
+                  <li>Luces azules</li>
+              </ul>
+
+          </div>
+          <div class="icon">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+      <ul>
+        <li><a href="#">Cuenta</a></li>
+        <li><a href="./productos.html">Productos</a></li>
+        <li><a href="#">Personalizados</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+        <li><a href="./carrito.html" style="color: white;"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li><a href="#" style="color: white;"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+      </ul>
+    </nav>
+
+    <div id="swup" class="anuncios transition-fade">
+      <div class="product-collection">
+        <div class="container">
+          <div class="product-collection-wrapper">
+            <!-- product col left -->
+            <div class="product-col-left flex">
+              <div class="product-col-content">
+                <h2 class="md-title">Blinkees </h2>
+                <p class="text-light">Explora el catalogo de la mejor página para la compra de juguetes y luces para
+                  fiesta.</p>
+                <a href="./pag-productos.html"><button type="button" class="btn-dark">Explora ahora</button></a>
+              </div>
+            </div>
+
+            <!-- product col right -->
+            <div class="product-col-right">
+              <div class="product-col-r-top flex">
+                <div class="product-col-content">
+                  <h2 class="sm-title">Productos de temporada </h2>
+                  <h2 class="md-title">Colección de verano </h2>
+                  <p class="text-light">¡Busca dentro de nuestros productos todo lo que necesites para iluminar tu
+                    fiesta de verano!</p>
+                  <a href="./pag-productos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+                </div>
+              </div>
+
+              <div class="product-col-r-bottom">
+                <!-- left -->
+                <div class="flex">
+                  <div class="product-col-content">
+                    <h2 class="sm-title">Accesorios </h2>
+                    <h2 class="md-title">Los más vendidos </h2>
+                    <p class="text-light">Los productos mas vendidos en nuestra tienda.</p>
+                    <a href="./pag-productos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+                  </div>
+                </div>
+                <!-- right -->
+                <div class="flex">
+                  <div class="product-col-content">
+                    <h2 class="sm-title">Blinkees personalizados </h2>
+                    <h2 class="md-title">Aceptando pedidos </h2>
+                    <p class="text-light">No pierdas tu oportunidad para ordenar los blinkees personalizados que
+                      necesites y darle vida a tu fiesta.</p>
+                    <a href="./pag-productos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pago-seguro-banner" style="overflow-x:hidden;">
+      <img src="./img/pago-seguro.png" alt="">
+    </div>
+
+    <!-- Slider -->
+    <div class="img-slider ">
+      <div class="slide active">
+        <img src="./img/slider2.png" alt="">
+        <div class="info">
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="./img/slider5.png" alt="">
+        <div class="info">
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="./img/slider4.png" alt="">
+        <div class="info">
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="./img/slider3.webp" alt="">
+
+        <div class="info">
+        </div>
+      </div>
+
+
+      <div class="slide">
+        <img src="./img/verano.png" alt="">
+        <div class="info">
+        </div>
+      </div>
+
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+
+
+
+    </div>
+    <!-- Slider items recientemente vistos -->
+    <div class="titulo-recientes transition-fade">
+      <h1>Nuestros productos con más vistas</h1>
+    </div>
+
+
+    <div class="recent">
+
+      <section>
+
+        <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content" id="cards">
+
+          </div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </section>
+    </div>
+    <div class="fondo">
+      <!-- PRODUCTOS DESTACADOS -->
+      <h1 style="text-align: center; top: 30px;">Algunos de nuestros productos</h1>
+      <div class="container-productos" id="productos">
+
+
+      </div>
+
+
+
+
+    </div>
+    <!-- FOOTER -->
+    <section class="footer" style="overflow-y: hidden;">
+
+
+      <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-snapchat"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+
+
+
+      <ul class="list">
+        <li>
+          <a href="./index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="#">Servicios</a>
+        </li>
+        <li>
+          <a href="#">Sobre nosotros</a>
+        </li>
+        <li>
+          <a href="#">Terminos</a>
+        </li>
+        <li>
+          <a href="#">Politica de privacidad</a>
+        </li>
+      </ul>
+
+      <div class="pago" style="overflow-x:hidden;">
+        <img src="./img/pago.png" alt="">
+      </div>
+
+      <p class="copyright">
+        LMAD FCFM @ 2022
+      </p>
+
+    </section>
+
+  </div>
+  <script src="./js/searchBar.js"></script>
+  <script src="./js/searchBarScript.js"></script>
+
+
+
+  <!-- Scripts -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/productos.js"></script>
+  <script src="./js/slider.js"></script>
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+    var currentSlidesPerView;
+
+    function updateSwiperSlides(windowWidth) {
+      var totalSlidesPerView;
+      if (windowWidth > 1000) {
+        totalSlidesPerView = 3;
+      } else if (windowWidth > 800) {
+        totalSlidesPerView = 2;
+      } else {
+        totalSlidesPerView = 1;
+      }
+
+      if (currentSlidesPerView === totalSlidesPerView) return;
+
+      currentSlidesPerView = totalSlidesPerView;
+
+      //Initialize Swiper
+      new Swiper('.mySwiper', {
+        slidesPerView: currentSlidesPerView,
+        spaceBetween: 10,
+        slidesPerGroup: currentSlidesPerView,
+        loop: true,
+        loopFillGroupWithBlank: false,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    }
+      $.ajax({
+     type: "GET",
+     dataType: "json",
+     url: "RevisarSesion"
+ }).done(function(data){
+     console.log(data);
+     if(data.respuesta == false){
+         alert("No cuentas con una sesion activa");  
+     }else{ 
+        alert("Hola");  
+        document.getElementById("loginUser").style.display = 'none';
+     }
+     
+ }).fail(function(jqXHR, textEstado){
+     console.log("La solicitud regreso con un error: " + textEstado);
+ });
+     
+
+
+
+    //OnLoad: (check the screen size when the page loads)
+    $(document).ready(function () {
+      
+      windowWidth = $(window).width();
+      updateSwiperSlides(windowWidth);
+
+      //onResize (check the screen size when the page resizes)
+      $(window).resize(function () {
+        windowWidth = $(window).width();
+        updateSwiperSlides(windowWidth);
+      });
+    });
+  </script>
+
+
+  <!-- On boarding -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script src="./js/onBoarding.js"></script>
+   <script src="./js/searchBar.js"></script>
+    <script src="./js/searchBarScript.js"></script>
+
+
+</body>
+</html>

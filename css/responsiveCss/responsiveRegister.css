@@ -1,0 +1,206 @@
+.regresarBtn {
+    background-color: #01c272;
+}
+
+.slogan{
+    color: white;
+}
+
+.btn_registrar{
+    background-color: black;
+}
+@media only screen and (max-width: 2560px) {
+    .register_box {
+        height: 54vh;
+        background-color: #01c272;
+    }
+}
+@media only screen and (max-width: 1920px) {
+    .register_box {
+        height: 95vh;
+        background-color: #01c272;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .register_box {
+        height: 85vh;
+        background-color: #01c272;
+    }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .register_box {
+        height: 80vh;
+    }
+    .slogan {
+        margin: 0;
+        padding: 0 0 11px;
+        text-align: center;
+        font-size: 40px;
+        color: #f9f9f9;
+    }
+    .register_box {
+        font-family: sans-serif;
+        width: 30%;
+        background-color: #01c272;
+        color: white;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        padding: 37px 59px;
+        border-radius: 10px;
+        height: 85vh;
+    }
+    .register {
+        width: 100%;
+        margin-bottom: 14px;
+        border: none;
+        border-bottom: 1px solid #000000;
+        background: transparent;
+        outline: none;
+        height: 20px;
+        color: white;
+        font-size: 18px;
+    }
+    .btn_registrar {
+        width: 50%;
+        margin-top: 20px;
+        margin-bottom: -4px;
+        margin-left: 25%;
+        border: none;
+        outline: none;
+        height: 40px;
+        display: block;
+        background-color: #03101b;
+        color: white;
+        font-size: 16px;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .register_box {
+        height: 80vh;
+    }
+    .slogan {
+        margin: 0;
+        padding: 0 0 11px;
+        text-align: center;
+        font-size: 40px;
+        color: #94b8d7;
+    }
+    .register_box {
+        font-family: sans-serif;
+        width: 40%;
+        background-color: #01c272;
+        color: white;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        padding: 37px 59px;
+        border-radius: 10px;
+        height: 85vh;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .register_box {
+        height: 80vh;
+    }
+    .slogan {
+        margin: 0;
+        padding: 0 0 11px;
+        text-align: center;
+        font-size: 40px;
+        color: #94b8d7;
+    }
+    .register_box {
+        font-family: sans-serif;
+        width: 70%;
+        background-color: #01c272;
+        color: white;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        padding: 37px 59px;
+        border-radius: 10px;
+        height: 85vh;
+    }
+    .regresarBtn {
+        position: absolute;
+        top: 17px;
+        left: 40px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .register_box {
+        height: 80vh;
+    }
+    .slogan {
+        margin: 0;
+        padding: 0 0 11px;
+        text-align: center;
+        font-size: 40px;
+        color: #94b8d7;
+    }
+    .register_box {
+        font-family: sans-serif;
+        width: 80%;
+        background-color: #01c272;
+        color: white;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        padding: 37px 59px;
+        border-radius: 10px;
+        height: 85vh;
+    }
+    .regresarBtn {
+        position: absolute;
+        top: 17px;
+        left: 40px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .register_box {
+        height: 80vh;
+    }
+    .slogan {
+        margin: 0;
+        padding: 0 0 11px;
+        text-align: center;
+        font-size: 40px;
+        color: #94b8d7;
+    }
+    .register_box {
+        font-family: sans-serif;
+        width: 90%;
+        background-color: #01c272;
+        color: white;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        padding: 37px 59px;
+        border-radius: 10px;
+        height: 85vh;
+    }
+    .regresarBtn {
+        position: absolute;
+        top: 17px;
+        left: 40px;
+    }
+}

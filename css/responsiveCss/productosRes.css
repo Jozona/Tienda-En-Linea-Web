@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+    .container-productos {
+        position: relative;
+        width: 500px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 50px;
+        top: -8px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .container-productos {
+        position: relative;
+        width: 300px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 50px;
+        top: -8px;
+        margin: 0 auto;
+    }
+}
+

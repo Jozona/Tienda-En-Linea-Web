@@ -1,0 +1,10 @@
+DAO\ProductoDAO.class
+Controlador\Login.class
+Model\Producto.class
+Controlador\InsertarUsuario.class
+DAO\UsuarioDAO.class
+Controlador\GetProductoVistas.class
+Model\Usuario.class
+Config\Conexion.class
+Controlador\GetProductoRandom.class
+Controlador\GetProducto.class

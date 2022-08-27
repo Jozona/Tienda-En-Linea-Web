@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <link rel="stylesheet" href="./css/flash.css">
+    <link rel="stylesheet" href="./css/Style_registro.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/9c8b8bf025.js" crossorigin="anonymous"></script>
+    <title>Blinkee-Registro</title>
+    <link rel="icon" href="./img/logologo2.png">
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="./css/responsiveCss/responsiveRegister.css">
+</head>
+<body>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-15e83d5b-2dba-4407-b7d7-2858a466b23f"></div>
+    <div class="background">
+        <a href="./index.html"><button class="regresarBtn"><i class="fa-solid fa-angle-left"></i>       Regresar</button></a>
+        <div class="register_box">
+            <h1 class="slogan">Regístrate</h1>
+            <form action="Blogee_login.html" method="post" class="ingresar_datos" id="formR" >
+                <label for="nombres">Nombres</label>
+                <input type="text" class="register" name="nombres" id="nombres" placeholder="Nombres" required>
+
+                <label for="apellidos">Apellidos</label>
+                <input type="text" class="register" name="apellidos" id="apellidos" placeholder="Apellidos" required>
+
+                <label for="correo">Correo electrónico</label>
+                <input type="email" class="register" name="email" id="email" placeholder="Email" required>
+
+                <label for="usuario">Usuario</label>
+                <input type="text" class="register" name="usuario" id="usuario" placeholder="Usuario" required >
+
+                <label for="contra">Contraseña</label>
+                <input type="password" class="register" name="contrasenia" id="contrasenia" placeholder="Contraseña" required>
+                
+                <label for="contra2">Confirmar contraseña</label>
+                <input type="password" class="register" name="contrasenia2" id="contrasenia2" placeholder="Contraseña" required>
+                
+                <label for="nacimiento">Fecha de nacimiento</label>
+                <input style="border-radius: 5px; border-bottom: 1px solid rgb(148, 184, 215);" type="text" id="my_date_picker">
+                <input type="submit" class="btn_registrar" id="btn_registrar" value="Registrar" style="cursor: pointer">
+                <a href="index.html" style="text-decoration: none"><input type="button" class="btn_registrar" id="btn_registrar" value="Volver" style="cursor: pointer"></a>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="./js/login.js"></script>
+    <script src="./js/registro.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+    </script>
+    <script src="./js/datepicker.js"></script>
+
+    <script>
+        $('.regresarBtn').click(function () {
+            if (history.length > 2) {
+                history.back();
+                return false;
+            }else{
+                window.location.replace("./index.html");
+            }
+        });
+    </script>
+
+</body>
+</html>

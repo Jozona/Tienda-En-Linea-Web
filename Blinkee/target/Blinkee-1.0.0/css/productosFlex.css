@@ -1,0 +1,38 @@
+.contenedor-nuevo .card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    
+}
+
+.contenedor-nuevo .card:hover .imgBx img{
+    border-radius: 13px;
+    transform: scale(1.1);
+}
+
+.contenedor-nuevo .card .imgBx{
+    background-color: rgba(248, 218, 223, 0.39);
+}
+
+.contenedor-nuevo{
+    min-height: 10vh;
+    bottom: 30px;
+}
+
+.contenedor-nuevo .card .imgBx h1{
+    color: white;
+    font-size: 70px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-weight: 1000;
+    cursor: pointer;
+}

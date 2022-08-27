@@ -1,0 +1,96 @@
+.cart-page{
+    margin: 80px auto;
+    width: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 85%;
+    background-color: #faf6f600;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #ed686833;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 4%;
+}
+
+.small-container th{
+    text-align: left;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    background: pink;
+    font-weight: normal;
+    font-weight:bolder;
+    text-align: left;
+    box-shadow: 0px 5px 10px #f9dbdb33;
+    
+
+}
+
+.small-container .borderTB{
+    border-radius: 20px 0px 0px 0px;
+}
+
+.small-container .borderTB2{
+    border-radius: 0px 20px 0px 0px;
+}
+
+
+.small-container td{
+    padding: 10px 5px;
+}
+
+.small-container td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+
+.small-container td a{
+    color: #86a6f7;
+    font-size: 12px;
+}
+
+.small-container td img{
+    object-fit: cover;
+    width: 20%;
+    height: 120px;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px #f9dbdb33;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.total-price table{
+    border-top: 3px solid pink;
+    width: 39%;
+    max-width: 500px;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+
+@media (max-width: 1080px) {
+    .small-container td img{
+        width: 50%;
+    }
+    
+}

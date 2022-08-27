@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <link rel="stylesheet" href="./css/flash.css">
+    <title>Producto</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/stylePagProductos.css">
+    <script src="https://kit.fontawesome.com/9c8b8bf025.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="top-info">
+        <p>BLINKEE.COM</p>
+        <a href="registro.html">Regístrate <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+        <a href="login.html">Inicia sesión <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+    </div>
+    <!-- MENU  -->
+    <nav class="menu-inicio" >
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fas fa-bars" id="btn-open-menu"></i>
+            <i class="fas fa-times" id="btn-menu-cancel"></i>
+        </label>
+        
+        <a href="index.html" style="left: 40px;"><img class="logo-menu" src="./img/imago.png" alt="Inicio"></a>
+        <ul>
+            <li><a href="#">Cuenta</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="#">Personalizados</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="./carrito.html" style="color: white;"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a class="btnOnBoarding" href="#" style="color: white;"><i class="fa-solid fa-clipboard-question"></i></a></li>
+            
+        </ul>
+    </nav>
+    <div class="filtro">
+        <h3>Envio gratis</h3>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <h4>Categorias</h4>
+            <p>Halloween</p>
+            <p>Navidad</p>
+        <h4>Descuentos</h4>
+            <p>Desde 5% OFF(65)</p>
+            <p>Desde 10% OFF(30)</p>
+            <p>Desde 15% OFF(21)</p>
+            <p>Desde 20% OFF(13)</p>
+            <p>Desde 25% OFF(2)</p>
+        <h4>Costo de envio</h4>
+            <p>Gratis(29)</p>
+        <h4></h4>
+    </div>
+    <div class="fondo">
+    <!-- PRODUCTOS DESTACADOS -->
+    <h1 style="text-align: center; top: 30px;" id="tituloCat"></h1>
+    <div class="container-productos" id="productosCard">
+        
+
+
+        
+
+    </div>
+    
+    <div class="pagination">
+        <a href="#" title="first page"><svg fill="currentColor"><path d="M17.59 18L19 16.59 14.42 12 19 7.41 17.59 6l-6 6zM11 18l1.41-1.41L7.83 12l4.58-4.59L11 6l-6 6z"/></svg></a>
+        <a href="#" title="previous page"><svg fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></a>
+        <a href="#" class="page-active">1</a>
+        <a href="#" >2</a>
+        <a href="#">3</a>
+        <span class="page-dots">...</span>
+        <a href="#">6</a>
+        <a href="#" title="next page"><svg fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
+        <a href="#" title="last page"><svg fill="currentColor"><path d="M6.41 6L5 7.41 9.58 12 5 16.59 6.41 18l6-6zM13 6l-1.41 1.41L16.17 12l-4.58 4.59L13 18l6-6z"/></svg></a>
+    </div>
+    </div>
+    <section class="footer">
+       
+
+        <div class="social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-snapchat"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        
+        <ul class="list">
+            <li>
+                <a href="./index.html">Inicio</a>
+            </li>
+            <li>
+                <a href="#">Servicios</a>
+            </li>
+            <li>
+                <a href="#">Sobre nosotros</a>
+            </li>
+            <li>
+                <a href="#">Terminos</a>
+            </li>
+            <li>
+                <a href="#">Politica de privacidad</a>
+            </li>
+        </ul>
+
+        <p class="copyright">
+            LMAD FCFM @ 2022
+        </p>
+
+    </section>
+    
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/productosCat.js"></script>
+</body>
+</html>
