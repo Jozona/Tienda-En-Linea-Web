@@ -84,7 +84,7 @@ header ul li a{
     display: inline-block;
     margin-top: 20px;
     padding: 8px 20px;
-    background: #017143;
+    background: #f58013;
     color: #fff;
     border-radius: 40px;
     font-weight: 500;
@@ -101,7 +101,7 @@ header ul li a{
 }
 
 .content .imgBox img{
-    max-width: 340px;
+    max-width: 740px;
 }
 
 .sci{
@@ -133,6 +133,6 @@ header ul li a{
     left: 0;
     width: 100%;
     height: 100%;
-    background: #5b2cca;
+    background: #f9af23;
     clip-path: circle(850px at right 1000px);
 }

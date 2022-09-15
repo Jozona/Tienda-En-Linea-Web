@@ -76,61 +76,111 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nueva wishlist</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                  </div>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Descripción:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div><div class="mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    Privada
-                    </label>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Crear wishlist</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nueva wishlist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Crear wishlist</button>
+                </div>
             </div>
-          </div>
-      </div>
+        </div>
+    </div>
 
-      <div class="modal fade " id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel" aria-hidden="true">
+    <div class="modal fade " id="rateModal" tabindex="-1" aria-labelledby="rateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Calificar producto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Puntuación:</label>
-                    <img src="./img/productos2/estrellas.png" alt="" style="width: 200px;">
-                  </div>
-                  <div class="mb-3">
-                    <label for="message-text" class="col-form-label">Reseña(opcional):</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Crear wishlist</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Calificar producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Puntuación:</label>
+                            <img src="./img/productos2/estrellas.png" alt="" style="width: 200px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Reseña(opcional):</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Crear wishlist</button>
+                </div>
             </div>
-          </div>
-      </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="venderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vender nuevo producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Cotizable
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Precio:$</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Existencia:$</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                                <label class="btn btn-outline-danger" for="vbtn-radio1">Foto 1</label>
+                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                                <label class="btn btn-outline-danger" for="vbtn-radio2">Foto 2</label>
+                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                                <label class="btn btn-outline-danger" for="vbtn-radio3">Foto 3</label>
+                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                                <label class="btn btn-outline-danger" for="vbtn-radio3">Video</label>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Crear wishlist</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -154,14 +204,11 @@
         </symbol>
         <symbol id="table" viewBox="0 0 16 16">
             <path
-                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
-            </path>
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
         </symbol>
         <symbol id="people-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
-            <path fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
-            </path>
+            <path
+                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
         </symbol>
         <symbol id="grid" viewBox="0 0 16 16">
             <path
@@ -237,51 +284,48 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
+                    <img class="bi me-2" width="40" height="32" src="./img/productos2/logoshop.png" alt="">
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-                    <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+                    <li><a href="./index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
+                    <li><a href="./platillaProductos.html" class="nav-link px-2 link-dark">Productos</a></li>
+                    <li><a href="./loginNew.html" class="nav-link px-2 link-dark">Conviertete en vendedor</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                 </form>
 
                 <div class="col-11 text-end col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                    <button type="button" class="btn btn-primary">Sign-up</button>
+                    <a href="./loginNew.html"><button type="button" class="btn btn-outline-primary me-2">Inicia
+                            sesión</button></a>
+                    <a href="./loginNew.html"><button type="button" class="btn btn-primary">Registrate</button></a>
                 </div>
                 <div class="dropdown text-end col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        <img src="./img/Productos/jinx.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="./perfil.html">Perfil</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="./landingPage.html">Salir</a></li>
                     </ul>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-outline-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-cart" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
-                            </path>
-                        </svg>
-                        <span class="visually-hidden">Button</span>
-                    </button>
+                    <a href="./carrito.html"><button type="button" class="btn btn-outline-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-cart" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
+                                </path>
+                            </svg>
+                            <span class="visually-hidden">Button</span>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -289,9 +333,7 @@
     <main class="d-flex flex-nowrap ">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light disableScroll" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <svg class="bi pe-none me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
+
                 <span class="fs-4">Tu perfil</span>
             </a>
             <hr>
@@ -303,7 +345,7 @@
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#home"></use>
                         </svg>
-                        Home
+                        Tu información
                     </a>
                 </li>
                 <li>
@@ -323,7 +365,7 @@
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
-                        Orders
+                        Mensajes
                     </a>
                 </li>
                 <li>
@@ -333,7 +375,7 @@
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Products
+                        Productos
                     </a>
                 </li>
                 <li>
@@ -343,7 +385,7 @@
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#people-circle"></use>
                         </svg>
-                        Customers
+                        Vender productos
                     </a>
                 </li>
             </ul>
@@ -370,13 +412,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>First Name</label>
+                                            <label> Nombre</label>
                                             <input type="text" class="form-control" value="Kiran">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Last Name</label>
+                                            <label>Apellido</label>
                                             <input type="text" class="form-control" value="Acharya">
                                         </div>
                                     </div>
@@ -388,25 +430,13 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Phone number</label>
-                                            <input type="text" class="form-control" value="+91 9876543215">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Company</label>
-                                            <input type="text" class="form-control" value="Kiran Workspace">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Designation</label>
-                                            <input type="text" class="form-control" value="UI Developer">
+                                            <label>Sexo</label>
+                                            <input type="text" class="form-control" value="Femenino">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Bio</label>
+                                            <label>Direccion</label>
                                             <textarea class="form-control"
                                                 rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
                                         </div>
@@ -427,7 +457,8 @@
                     <h3 class=" pb-2 mb-0">Tus wishlists</h3>
                     <i class="bi bi-lock"></i>
                     <div class="border-bottom border-gray pb-2 mb-0">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear una nueva</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Publicar
+                            producto</button>
                     </div>
                     <div class="media text-muted pt-3">
                         <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32"
@@ -488,7 +519,7 @@
 
                             <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
 
-                                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Member</h5>
+                                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Mensajes</h5>
 
                                 <div class="card">
                                     <div class="card-body">
@@ -497,17 +528,16 @@
                                             <li class="p-2 border-bottom" style="background-color: #eee;">
                                                 <a href="#!" class="d-flex justify-content-between">
                                                     <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-8.webp"
-                                                            alt="avatar"
+                                                        <img src="./img/Productos/batallas.jpg" alt="avatar"
                                                             class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
                                                             width="60">
                                                         <div class="pt-1">
                                                             <p class="fw-bold mb-0">John Doe</p>
-                                                            <p class="small text-muted">Hello, Are you there?</p>
+                                                            <p class="small text-muted">Que onda, estas libre?</p>
                                                         </div>
                                                     </div>
                                                     <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Just now</p>
+                                                        <p class="small text-muted mb-1">Justo ahora</p>
                                                         <span class="badge bg-danger float-end">1</span>
                                                     </div>
                                                 </a>
@@ -515,104 +545,16 @@
                                             <li class="p-2 border-bottom">
                                                 <a href="#!" class="d-flex justify-content-between">
                                                     <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-1.webp"
-                                                            alt="avatar"
+                                                        <img src="./img/productos/jinx.jpg" alt="avatar"
                                                             class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
                                                             width="60">
                                                         <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Danny Smith</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
+                                                            <p class="fw-bold mb-0">Leo Hernandez</p>
+                                                            <p class="small text-muted">Puedes cotizar este?</p>
                                                         </div>
                                                     </div>
                                                     <div class="pt-1">
-                                                        <p class="small text-muted mb-1">5 mins ago</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-2.webp"
-                                                            alt="avatar"
-                                                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                                                            width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Alex Steward</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Yesterday</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-3.webp"
-                                                            alt="avatar"
-                                                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                                                            width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Ashley Olsen</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Yesterday</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-4.webp"
-                                                            alt="avatar"
-                                                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                                                            width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Kate Moss</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Yesterday</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                                                            alt="avatar"
-                                                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                                                            width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Lara Croft</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Yesterday</p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                                            alt="avatar"
-                                                            class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                                                            width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Brad Pitt</p>
-                                                            <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pt-1">
-                                                        <p class="small text-muted mb-1">5 mins ago</p>
-                                                        <span class="text-muted float-end"><i class="fas fa-check"
-                                                                aria-hidden="true"></i></span>
+                                                        <p class="small text-muted mb-1">5 mins</p>
                                                     </div>
                                                 </a>
                                             </li>
@@ -627,55 +569,14 @@
 
                                 <ul class="list-unstyled">
                                     <li class="d-flex justify-content-between mb-4">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                            alt="avatar"
+                                        <img src="./img/Productos/jinx.jpg" alt="avatar"
                                             class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
                                             width="60">
                                         <div class="card">
                                             <div class="card-header d-flex justify-content-between p-3">
-                                                <p class="fw-bold mb-0">Brad Pitt</p>
-                                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 mins
-                                                    ago</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliqua.
+                                                <p class="fw-bold mb-0">Leo Hernandez</p>
+                                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 minutos
                                                 </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex justify-content-between mb-4">
-                                        <div class="card w-100">
-                                            <div class="card-header d-flex justify-content-between p-3">
-                                                <p class="fw-bold mb-0">Lara Croft</p>
-                                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 13 mins
-                                                    ago</p>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                                    accusantium doloremque
-                                                    laudantium.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                                            alt="avatar"
-                                            class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                                            width="60">
-                                    </li>
-                                    <li class="d-flex justify-content-between mb-4">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                            alt="avatar"
-                                            class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                                            width="60">
-                                        <div class="card">
-                                            <div class="card-header d-flex justify-content-between p-3">
-                                                <p class="fw-bold mb-0">Brad Pitt</p>
-                                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 10 mins
-                                                    ago</p>
                                             </div>
                                             <div class="card-body">
                                                 <p class="mb-0">
@@ -689,10 +590,9 @@
                                     <li class="bg-white mb-3">
                                         <div class="form-outline">
                                             <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
-                                            <label class="form-label" for="textAreaExample2">Message</label>
                                         </div>
                                     </li>
-                                    <button type="button" class="btn btn-info btn-rounded float-end">Send</button>
+                                    <button type="button" class="btn btn-info btn-rounded float-end">Enviar</button>
                                 </ul>
 
                             </div>
@@ -709,9 +609,8 @@
                     <div class="border-bottom border-gray pb-2 mb-0">
                     </div>
                     <div class="media text-muted pt-3">
-                        <img  alt="32x32" src="./img/globos.jpg"
-                            class="mr-2 rounded" 
-                            data-holder-rendered="true" style="width: 96px; height: 96px;">
+                        <img alt="32x32" src="./img/globos.jpg" class="mr-2 rounded" data-holder-rendered="true"
+                            style="width: 96px; height: 96px;">
                         <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <strong class="text-gray-dark">Globos rosas</strong>
@@ -724,9 +623,8 @@
                         </div>
                     </div>
                     <div class="media text-muted pt-3">
-                        <img  alt="32x32" src="./img/slider4.png"
-                            class="mr-2 rounded" 
-                            data-holder-rendered="true" style="width: 96px; height: 96px;">
+                        <img alt="32x32" src="./img/slider4.png" class="mr-2 rounded" data-holder-rendered="true"
+                            style="width: 96px; height: 96px;">
                         <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <strong class="text-gray-dark">Varas de neon para fiesta</strong>
@@ -739,9 +637,8 @@
                         </div>
                     </div>
                     <div class="media text-muted pt-3">
-                        <img   alt="32x32" src="./img/producto.jpg"
-                            class="mr-2 rounded" 
-                            data-holder-rendered="true" style="width: 96px; height: 96px; cursor:pointer;">
+                        <img alt="32x32" src="./img/producto.jpg" class="mr-2 rounded" data-holder-rendered="true"
+                            style="width: 96px; height: 96px; cursor:pointer;">
                         <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                             <div class="d-flex justify-content-between align-items-center w-100">
                                 <strong class="text-gray-dark">Pluma de varios colores</strong>
@@ -757,7 +654,51 @@
                     </small>
                 </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-extra" role="tabpanel" aria-labelledby="v-pills-extra-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-extra" role="tabpanel" aria-labelledby="v-pills-extra-tab">
+                <div class="my-3 p-3 bg-white rounded box-shadow">
+                    <h3 class=" pb-2 mb-0">Tus ventas</h3>
+                    <div class="border-bottom border-gray pb-2 mb-0">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#venderModal">Crear una
+                            nueva</button>
+                    </div>
+                    <i class="bi bi-lock"></i>
+                    <div class="media text-muted pt-3">
+                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <strong class="text-gray-dark">Globos rosas</strong>
+                                <div>
+                                    <a href="#">Detalles</a>
+                                </div>
+                            </div>
+                            <span class="d-block">322.00$</span>
+                        </div>
+                    </div>
+                    <div class="media text-muted pt-3">
+                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <strong class="text-gray-dark">Varas de neon para fiesta</strong>
+                                <div>
+                                    <a href="#">Detalles</a>
+                                </div>
+                            </div>
+                            <span class="d-block">10.00$</span>
+                        </div>
+                    </div>
+                    <div class="media text-muted pt-3">
+                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <div class="d-flex justify-content-between align-items-center w-100">
+                                <strong class="text-gray-dark">Pluma de varios colores</strong>
+                                <div>
+                                    <a href="#">Detalles</a>
+                                </div>
+                            </div>
+                            <span class="d-block">423.00$</span>
+                        </div>
+                    </div>
+                    <small class="d-block text-right mt-3">
+                    </small>
+                </div>
+            </div>
         </div>
 
 
