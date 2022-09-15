@@ -653,3 +653,8 @@ background: -moz-linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(9, 48, 189, 
         margin: 0 -120px;
     }
 }
+
+.search-input{
+    display: flex;
+    flex: 1 1 300px;
+}
