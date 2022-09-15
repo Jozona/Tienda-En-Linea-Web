@@ -1,0 +1,15 @@
+.productos{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.filtro{
+    padding: 2em;
+}
+
+@media(max-width : 763px){
+    .productos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

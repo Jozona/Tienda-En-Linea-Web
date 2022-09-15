@@ -1154,3 +1154,7 @@ body .container-productos{
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
 }
+
+.btnCar{
+    color: blue;
+}
