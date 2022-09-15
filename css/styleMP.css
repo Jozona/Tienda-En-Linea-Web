@@ -177,7 +177,7 @@
     padding: 3.2rem 0;
 }
 .anuncios .product-col-left{
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("/img/aviso1.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("/img/productos2/portada.webp") center/cover no-repeat;
     opacity: 0.9;
 }
 .anuncios .product-col-r-top{
@@ -211,7 +211,7 @@
     line-height: 1.7;
 }
 .anuncios .btn-dark{
-    background: #757575;
+    background: #a3741c;
     color: rgb(255, 255, 255);
     outline: 0;
     border-radius: 25px;

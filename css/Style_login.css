@@ -103,7 +103,7 @@
 
 /* CSS */
 .regresarBtn {
-  background-color: #6276dc;
+  background-color: #f9af23;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
@@ -131,7 +131,7 @@
 
 .regresarBtn:hover,
 .regresarBtn:focus {
-  background-color: #677bde;
+  background-color: #000000;
 }
 
 .bg-secondary {
