@@ -1,1 +1,0 @@
-const imgs = document.querySelectorAll('/img-slect')

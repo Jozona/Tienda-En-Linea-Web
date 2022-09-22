@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +101,7 @@
 </head>
 
 <body>
-  <h1><?php echo $_SESSION[$user] ?></h1>
+  <h1><?php echo $_SESSION['user'] ?></h1>
   <button class="onboarding-btn" style="display: none;">Show Demo</button>
 
   <div class="onboarding-overlay"></div>

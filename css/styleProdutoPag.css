@@ -184,7 +184,7 @@
         grid-gap: 1.5rem;
     }
     .producto .card-wrapper{
-        height: 100vh;
+        height: 108vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -202,7 +202,7 @@
 
 @media screen and (min-width: 1000px){
     .producto .card-wrapper{
-        max-height: 80vh;
+        max-height: 108vh;
         justify-content: center;
         align-items: center;
         position: relative;

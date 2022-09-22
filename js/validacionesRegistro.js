@@ -1,4 +1,9 @@
-
+var form2 = document.getElementById("registro");
+function handleForm(event) { event.preventDefault(); } 
+form2.addEventListener('submit', handleForm);
+var form3 = document.getElementById("login");
+function handleForm(event) { event.preventDefault(); } 
+form3.addEventListener('submit', handleForm);
 const form = document.getElementById("registro");
 // Aqui obtenemos todos los inputs del Form
 const inputs = document.querySelectorAll("#registro input");
@@ -201,7 +206,7 @@ form4.addEventListener("submit", e => {
         text: 'La contraseña no puede estar vacio',
     });
     }else{
-        window.location.href="index.html";
+        window.location.href="index.php";
     }
 
 });

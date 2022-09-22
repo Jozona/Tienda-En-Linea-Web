@@ -18,16 +18,16 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form class="sign-in-form" id="login">
+                <form action="./php/login.php" method="post" class="sign-in-form" id="login">
                     <h2 class="title">Inicia sesión</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input id="usuario2" type="text" placeholder="Usuario">
+                        <input id="usuario2" type="text" placeholder="Usuario" name="user">
 
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input id="password2" type="password" placeholder="Constraseña">
+                        <input id="password2" type="password" placeholder="Constraseña" name="password">
                     </div>
                     <input type="submit" value="Aceptar" name="" id="" class="btn solid">
                     <p class="social-text">O ingresa con...</p>
@@ -39,16 +39,16 @@
                     </div>
                 </form>
 
-                <form id="registro" class="sign-up-form">
+                <form method="POST" action="./php/register.php"  id="registro" class="sign-up-form" >
                     <h2 class="title">Regístrate</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input id="usuario" name="usuario" type="text" placeholder="Usuario">
+                        <input id="usuario" type="text"   name="usuario" placeholder="Usuario">
 
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input  id="password"  name="password" type="password" placeholder="Constraseña">
+                        <input  id="password"   type="password" name="password" placeholder="Constraseña">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-mail-bulk"></i>
-                        <input id="email" name="usuario" type="text" placeholder="Email">
+                        <input id="email" name="email" type="text" placeholder="Email">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-birthday-cake"></i>
@@ -78,12 +78,12 @@
                           </select>
                     </div>
                     <div class="input-field2">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="privado" id="flexCheckDefault" name="privado">
                         <label class="form-check-label" for="flexCheckDefault">
                             Cuenta privada
                         </label>
                     </div>
-                    <input type="submit" value="Aceptar" name="" id="" class="btn solid">
+                    <input type="submit" value="Aceptar" class="btn solid">
                 </form>
             </div>
         </div>
@@ -117,8 +117,12 @@
 
     </div>
 
-    <script src="./js/logsign.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/ajaxFiles.js/register.js"></script>
+    <script src="./js/ajaxFiles.js/login.js"></script>
     <script src="./js/validacionesRegistro.js"></script>
+    <script src="./js/logsign.js"></script> 
+    
     
 </body>
 
