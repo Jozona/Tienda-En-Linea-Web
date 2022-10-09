@@ -1,3 +1,8 @@
+<?php
+session_start();
+include_once './php/connection.php'
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -63,6 +68,7 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./css/profilestyle.css">
     <link rel="mask-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
     <meta name="theme-color" content="#712cf9">
@@ -70,6 +76,8 @@
 </head>
 
 <body>
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -133,40 +141,38 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="./php/upload.php" method="POST" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" id="crearProducto" action="./php/uploadProduct.php">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control" id="recipient-name" name="nomProducto">
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Descripción:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <textarea class="form-control" id="message-text" name="descPdt"></textarea>
                         </div>
                         <div class="mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="checkCoti">
                             <label class="form-check-label" for="flexCheckDefault">
                                 Cotizable
                             </label>
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Precio:$</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <label for="recipient-name" class="col-form-label">Precio:$</label> <input name="cotizablePdo" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input type="text" class="form-control" id="recipient-name" name="precioPdt">
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Existencia:$</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <label for="recipient-name" class="col-form-label w-25">Existencia:</label>
+                            <input type="text" class="form-control" id="recipient-name" name="existenciaPdt">
                         </div>
 
-                        <div class="mb-3">
-                            <input type="file" name="foto1">
-                        </div>
+                        
                         <div class="mb-3">
                             <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-                                <input type="file" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+                                <input name="foto1" type="file" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
                                 <label class="btn btn-outline-danger" for="vbtn-radio1">Foto 1</label>
-                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+                                <input name="foto2" type="file" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
                                 <label class="btn btn-outline-danger" for="vbtn-radio2">Foto 2</label>
-                                <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+                                <input name="foto3" type="file" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
                                 <label class="btn btn-outline-danger" for="vbtn-radio3">Foto 3</label>
                                 <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
                                 <label class="btn btn-outline-danger" for="vbtn-radio3">Video</label>
@@ -281,22 +287,30 @@
                     <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                 </form>
 
-                <div class="col-11 text-end col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <a href="./loginNew.html"><button type="button" class="btn btn-outline-primary me-2" style="border: #f9af23; color: #f9af23;">Inicia sesión</button></a>
-                    <a href="./loginNew.html"><button type="button" class="btn btn-primary" style="background-color: #f9af23; color: #ffffff; border-color: black;">Registrate</button></a>
-                </div>
-                <div class="dropdown text-end col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="./img/Productos/jinx.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="./perfil.html">Perfil</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="./landingPage.html">Salir</a></li>
-                    </ul>
-                </div>
+                <!-- If there's an user signed in, we hide the buttons and show his profile picture -->
+                <?php
+                if (isset($_SESSION['user'])) {
+                    echo "<div class='dropdown text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
+                        <a href='#' class='d-block link-dark text-decoration-none dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                            <img src='./img/Productos/jinx.jpg' alt='mdo' width='32' height='32' class='rounded-circle'>
+                        </a>
+                        <ul class='dropdown-menu text-small'>
+                            <li><a class='dropdown-item' href='./perfil.html'>Perfil</a></li>
+                            <li>
+                                <hr class='dropdown-divider'>
+                            </li>
+                            <li><a class='dropdown-item' href='./php/logout.php'>Salir</a></li>
+                        </ul>
+                    </div>";
+                } else {
+                    echo "<div class='col-11 text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
+                        <a href='./loginNew.html'><button type='button' class='btn btn-outline-primary me-2' style='border: #f9af23; color: #f9af23;'>Inicia sesión</button></a>
+                        <a href='./loginNew.html'><button type='button' class='btn btn-primary' style='background-color: #f9af23; color: #ffffff; border-color: black;'>Registrate</button></a>
+                    </div>";
+                }
+                ?>
+
+
                 <div class="btn-group">
                     <a href="./carrito.html"><button type="button" class="btn btn-outline-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -371,49 +385,69 @@
                     <div class="bg-white shadow rounded-lg d-block d-sm-flex">
 
                         <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                                <h3 class="mb-4">Tu informacion</h3>
+                            <form action="./php/uploadPP.php" method="POST" enctype="multipart/form-data">
+                                <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                    <h3 class="mb-4">Tu informacion</h3>
 
-                                <div class="row">
-                                    <div class=" col-md-6 img-circle text-center mb-3">
-                                        <img src="./img/brenna-huff-OzKgJ5BP5vU-unsplash.jpg" alt="Image" class="shadow" style="cursor: pointer;">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label> Nombre</label>
-                                            <input type="text" class="form-control" value="Kiran">
+                                    <div class="row">
+                                        <div class=" col-md-6 img-circle text-center mb-3">
+                                            <!-- //Buscamos la direccion de la foto de perfil y la mostramos
+                                            //El else es solo de prueba, el usuario no deberia poder entrar aqui -->
+                                            <?php
+                                            $query = mysqli_query($conn, "SELECT * FROM users WHERE username= '" . $_SESSION['user'] . "'");
+                                            if ($row = mysqli_fetch_assoc($query)) {
+                                                if (isset($_SESSION['user'])) {
+                                                    echo "<img id='imgPFP' src='" . $row . ['profile_picture'] . "' alt='Image' class='shadow' style='cursor: pointer;'>";
+                                                } else {
+                                                    echo "<img id='imgPFP' src='./img/brenna-huff-OzKgJ5BP5vU-unsplash.jpg' alt='Image' class='shadow' style='cursor: pointer;'>";
+                                                }
+                                            }
+                                            ?>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label> Cambiar foto de perfil</label>
+                                                <input type="file" name="PFP" onchange="onFileSelected(event)" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label> Nombre</label>
+                                                <input type="text" class="form-control" value="Kiran">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido</label>
+                                                <input type="text" class="form-control" value="Acharya">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" value="kiranacharya287@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <input type="text" class="form-control" value="Femenino">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Direccion</label>
+                                                <textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Apellido</label>
-                                            <input type="text" class="form-control" value="Acharya">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" class="form-control" value="kiranacharya287@gmail.com">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Sexo</label>
-                                            <input type="text" class="form-control" value="Femenino">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Direccion</label>
-                                            <textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
-                                        </div>
+                                    <div>
+                                        <input type="submit" name="submit" class="btn btn-primary" value="Actualizar">
+                                        <button class="btn btn-light" onClick="window.location.reload();">Cancelar</button>
                                     </div>
                                 </div>
-                                <div>
-                                    <button class="btn btn-primary">Update</button>
-                                    <button class="btn btn-light">Cancel</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -654,7 +688,56 @@
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function onFileSelected(event) {
+            var selectedFile = event.target.files[0];
+            var reader = new FileReader();
+
+            var imgtag = document.getElementById("imgPFP");
+            imgtag.title = selectedFile.name;
+
+            reader.onload = function(event) {
+                imgtag.src = event.target.result;
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+        $('#crearProducto').on('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: $('#crearProducto').attr('action'),
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(result) {
+                    
+                    if (result === "creado") {
+                        swal({
+                            icon: 'success',
+                            title: 'Producto creado',
+                        }).then((value) => {
+                            window.location.href = "perfil.php";
+                        });
+                    } else {
+                        swal({
+                            icon: 'error',
+                            title: 'No fue posible crear tu producto',
+                        }).then((value) => {
+
+                        });
+                    }
+
+                    if (condition) {} else {}
+                }
+            })
+        })
+    </script>
+
 </body>
 
 </html>

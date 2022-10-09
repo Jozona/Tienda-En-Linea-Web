@@ -206,7 +206,7 @@ form4.addEventListener("submit", e => {
         text: 'La contraseña no puede estar vacio',
     });
     }else{
-        window.location.href="index.php";
+        
     }
 
 });

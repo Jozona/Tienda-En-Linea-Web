@@ -1,0 +1,140 @@
+<?php
+    session_start();
+    require_once './php/usersAPI.php';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $API = new API_Users;
+        $user = $_POST['user'];
+        $password = $_POST['password'];
+        $API->LoginSelect($user, $password);
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Ingresa</title>
+    <link rel="stylesheet" href="./css/loginNew.css">
+    <link rel="icon" href="./img/productos2/logoshop.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="./php/login.php"  method="post" class="sign-in-form" id="login">
+                    <h2 class="title">Inicia sesión</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="usuario2" type="text" placeholder="Usuario" name="user">
+
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="password2" type="password" placeholder="Constraseña" name="password">
+                    </div>
+                    <input type="submit" value="Aceptar" name="" id="" class="btn solid">
+                    <p class="social-text">O ingresa con...</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </form>
+
+                <form method="POST" action="./php/register.php"  id="registro" class="sign-up-form" >
+                    <h2 class="title">Regístrate</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="usuario" type="text"   name="usuario" placeholder="Usuario">
+
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input  id="password"   type="password" name="password" placeholder="Constraseña">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="nombre" name="nombre" type="text" placeholder="Nombre completo">
+
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-mail-bulk"></i>
+                        <input id="email" name="email" type="text" placeholder="Email">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-birthday-cake"></i>
+                        <input id="fecha" name="fecha" type="date" placeholder="Nacimiento">
+                    </div>
+                    <div class="input-field2" style="padding-bottom: 3px;">
+                        <select name="sexo" id="sexo" class="form-select" aria-label="Default select example">
+                            <option selected>Sexo</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                        </select>
+                    <br>
+                    <div class="input-field2">
+                        <select name="rol" id="rol" class="form-select" aria-label="Default select example">
+                            <option selected>¿Como te quieres registrar?</option>
+                            <option value="1">Comprador</option>
+                            <option value="2">Vendedor</option>
+                          </select>
+                    </div>
+                    <div class="input-field2">
+                        <input class="form-check-input" type="checkbox" value="privado" id="flexCheckDefault" name="privado">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Cuenta privada
+                        </label>
+                    </div>
+                    <input type="submit" value="Aceptar" class="btn solid">
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <img src="./img/productos2/logoshop.png" width="100px" alt="">
+                    <h2>Boutlig</h2>
+                    <h3>¿Nuevo aqui?</h3>
+                    <p>Registrate en nuestro sistema</p>
+                    <button class="btn transparent" id="sign-up-btn">Registrate</button>
+                </div>
+
+                <img src="./img/maker launch.svg" class="image" alt="">
+            </div>
+
+
+            <div class="panel right-panel">
+                <div class="content">
+                    <img src="./img/productos2/logoshop.png" width="100px" alt="">
+                    <h2>Boutlig</h2>
+                    <h3>¿Ya tienes cuenta?</h3>
+                    <p>Ingresa a nuestro sistema con tu cuenta y usuario</p>
+                    <button class="btn transparent" id="sign-in-btn">Ingresa</button>
+                </div>
+
+                <img src="./img/press play.svg" class="image" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/ajaxFiles.js/register.js"></script>
+    <script src="./js/ajaxFiles.js/login.js"></script>
+    <script src="./js/validacionesRegistro.js"></script>
+    <script src="./js/logsign.js"></script> 
+    
+    
+</body>
+
+</html>
