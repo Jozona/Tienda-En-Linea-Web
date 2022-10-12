@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once './php/connection.php'
+include_once './php/usersAPI.php'
 ?>
 
 <!doctype html>
@@ -68,6 +68,7 @@ include_once './php/connection.php'
             -webkit-overflow-scrolling: touch;
         }
     </style>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="./css/profilestyle.css">
     <link rel="mask-icon" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
@@ -165,7 +166,7 @@ include_once './php/connection.php'
                             <input type="text" class="form-control" id="recipient-name" name="existenciaPdt">
                         </div>
 
-                        
+
                         <div class="mb-3">
                             <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
                                 <input name="foto1" type="file" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
@@ -333,19 +334,41 @@ include_once './php/connection.php'
             <hr>
             <ul class="nav nav-pills flex-column mb-auto" role="tablist" id="myTab" aria-orientation="vertical">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">
-                        <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
-                        </svg>
-                        Tu información
+                    <?php
+                    if(isset($_GET['seccion'])){
+                    if ($_GET['seccion'] != 'inicio') {
+                        echo '<a href="#" class="nav-link link-dark " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                    } else {
+                        echo '<a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                    }
+                    }else{
+                        echo '<a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                    
+                    }
+                    ?>
+                    <svg class="bi pe-none me-2" width="16" height="16">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Tu información
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-                        <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        Wishlists
+                    <?php
+                    if(isset($_GET['seccion'])){
+                    if ($_GET['seccion'] == 'wishlist') {
+                        echo '<a href="#" class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
+                    } else {
+                        echo '<a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
+                    }
+                    }else{
+                        echo '<a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';             
+                    }
+                    ?>
+
+                    <svg class="bi pe-none me-2" width="16" height="16">
+                        <use xlink:href="#star"></use>
+                    </svg>
+                    Wishlists
                     </a>
                 </li>
                 <li>
@@ -379,305 +402,274 @@ include_once './php/connection.php'
         <div class="b-example-divider b-example-vr"></div>
         <div class="tab-content" id="v-pills-tabContent">
             <!-- Datos de usuario -->
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <?php
+                if(isset($_GET['seccion'])){
+                    if ($_GET['seccion'] != 'inicio') {
+                        echo '<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
+                    }
+                    else{
+                        echo '<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
+                    }
+                }else{
+                    echo '<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
+                }
+            ?>
+
+            
                 <div class="container">
                     <h1 class="mb-5"></h1>
                     <div class="bg-white shadow rounded-lg d-block d-sm-flex">
 
                         <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                            <form action="./php/uploadPP.php" method="POST" enctype="multipart/form-data">
-                                <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                                    <h3 class="mb-4">Tu informacion</h3>
-
-                                    <div class="row">
-                                        <div class=" col-md-6 img-circle text-center mb-3">
-                                            <!-- //Buscamos la direccion de la foto de perfil y la mostramos
-                                            //El else es solo de prueba, el usuario no deberia poder entrar aqui -->
-                                            <?php
-                                            $query = mysqli_query($conn, "SELECT * FROM users WHERE username= '" . $_SESSION['user'] . "'");
-                                            if ($row = mysqli_fetch_assoc($query)) {
-                                                if (isset($_SESSION['user'])) {
-                                                    echo "<img id='imgPFP' src='" . $row . ['profile_picture'] . "' alt='Image' class='shadow' style='cursor: pointer;'>";
-                                                } else {
-                                                    echo "<img id='imgPFP' src='./img/brenna-huff-OzKgJ5BP5vU-unsplash.jpg' alt='Image' class='shadow' style='cursor: pointer;'>";
-                                                }
-                                            }
-                                            ?>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label> Cambiar foto de perfil</label>
-                                                <input type="file" name="PFP" onchange="onFileSelected(event)" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label> Nombre</label>
-                                                <input type="text" class="form-control" value="Kiran">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Apellido</label>
-                                                <input type="text" class="form-control" value="Acharya">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="text" class="form-control" value="kiranacharya287@gmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Sexo</label>
-                                                <input type="text" class="form-control" value="Femenino">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Direccion</label>
-                                                <textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input type="submit" name="submit" class="btn btn-primary" value="Actualizar">
-                                        <button class="btn btn-light" onClick="window.location.reload();">Cancelar</button>
-                                    </div>
-                                </div>
+                            <form action="./php/actulizarPerfilHandler.php" method="POST" enctype="multipart/form-data" id="changeProfile">
+                                <?php
+                                $LoadUserAPI = new API_Users;
+                                $LoadUserAPI->LoadUserProfile();
+                                ?>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Las wishlists -->
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                <div class="my-3 p-3 bg-white rounded box-shadow">
-                    <h3 class=" pb-2 mb-0">Tus wishlists</h3>
-                    <i class="bi bi-lock"></i>
-                    <div class="border-bottom border-gray pb-2 mb-0">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Publicar
-                            producto</button>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Lista de cumpleaños</strong>
-                                <a href="#">Eliminar</a>
-                            </div>
-                            <span class="d-block">23 productos</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Creando pc</strong>
-                                <i class="bi bi-lock"></i>
-                                <a href="#"> Eliminar</a>
+            <?php
+            
+            if(isset($_GET['seccion'])){
+            if ($_GET['seccion'] == 'wishlist') {
+                echo '<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
+            } else {
+                echo '<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
+            }
+            }else{
+                echo '<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
+            }
+            ?>
 
-                            </div>
-                            <span class="d-block">23 productos</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773f%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773f%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Para la chamba</strong>
-                                <a href="#">Eliminar</a>
-                            </div>
-                            <span class="d-block">23 productos</span>
-                        </div>
-                    </div>
-                    <small class="d-block text-right mt-3">
-                    </small>
+
+            <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h3 class=" pb-2 mb-0">Tus wishlists</h3>
+                <i class="bi bi-lock"></i>
+                <div class="border-bottom border-gray pb-2 mb-0">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Publicar
+                        producto</button>
                 </div>
+                <div class="media text-muted pt-3">
+                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Lista de cumpleaños</strong>
+                            <a href="#">Eliminar</a>
+                        </div>
+                        <span class="d-block">23 productos</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Creando pc</strong>
+                            <i class="bi bi-lock"></i>
+                            <a href="#"> Eliminar</a>
+
+                        </div>
+                        <span class="d-block">23 productos</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773f%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773f%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Para la chamba</strong>
+                            <a href="#">Eliminar</a>
+                        </div>
+                        <span class="d-block">23 productos</span>
+                    </div>
+                </div>
+                <small class="d-block text-right mt-3">
+                </small>
             </div>
-            <!-- Mensajes -->
-            <div class="tab-pane fade chat-place" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <section style="background-color: #eee;">
-                    <div class="container py-5">
+        </div>
+        <!-- Mensajes -->
+        <div class="tab-pane fade chat-place" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <section style="background-color: #eee;">
+                <div class="container py-5">
 
-                        <div class="row">
+                    <div class="row">
 
-                            <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+                        <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
 
-                                <h5 class="font-weight-bold mb-3 text-center text-lg-start">Mensajes</h5>
+                            <h5 class="font-weight-bold mb-3 text-center text-lg-start">Mensajes</h5>
 
-                                <div class="card">
-                                    <div class="card-body">
+                            <div class="card">
+                                <div class="card-body">
 
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="p-2 border-bottom" style="background-color: #eee;">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="./img/Productos/batallas.jpg" alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">John Doe</p>
-                                                            <p class="small text-muted">Que onda, estas libre?</p>
-                                                        </div>
-                                                    </div>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="p-2 border-bottom" style="background-color: #eee;">
+                                            <a href="#!" class="d-flex justify-content-between">
+                                                <div class="d-flex flex-row">
+                                                    <img src="./img/Productos/batallas.jpg" alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
                                                     <div class="pt-1">
-                                                        <p class="small text-muted mb-1">Justo ahora</p>
-                                                        <span class="badge bg-danger float-end">1</span>
+                                                        <p class="fw-bold mb-0">John Doe</p>
+                                                        <p class="small text-muted">Que onda, estas libre?</p>
                                                     </div>
-                                                </a>
-                                            </li>
-                                            <li class="p-2 border-bottom">
-                                                <a href="#!" class="d-flex justify-content-between">
-                                                    <div class="d-flex flex-row">
-                                                        <img src="./img/productos/jinx.jpg" alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
-                                                        <div class="pt-1">
-                                                            <p class="fw-bold mb-0">Leo Hernandez</p>
-                                                            <p class="small text-muted">Puedes cotizar este?</p>
-                                                        </div>
-                                                    </div>
+                                                </div>
+                                                <div class="pt-1">
+                                                    <p class="small text-muted mb-1">Justo ahora</p>
+                                                    <span class="badge bg-danger float-end">1</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="p-2 border-bottom">
+                                            <a href="#!" class="d-flex justify-content-between">
+                                                <div class="d-flex flex-row">
+                                                    <img src="./img/productos/jinx.jpg" alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60">
                                                     <div class="pt-1">
-                                                        <p class="small text-muted mb-1">5 mins</p>
+                                                        <p class="fw-bold mb-0">Leo Hernandez</p>
+                                                        <p class="small text-muted">Puedes cotizar este?</p>
                                                     </div>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                                </div>
+                                                <div class="pt-1">
+                                                    <p class="small text-muted mb-1">5 mins</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
 
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 col-lg-7 col-xl-8">
+
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between mb-4">
+                                    <img src="./img/Productos/jinx.jpg" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
+                                    <div class="card">
+                                        <div class="card-header d-flex justify-content-between p-3">
+                                            <p class="fw-bold mb-0">Leo Hernandez</p>
+                                            <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 minutos
+                                            </p>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="mb-0">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                                eiusmod tempor incididunt ut
+                                                labore et dolore magna aliqua.
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-6 col-lg-7 col-xl-8">
-
-                                <ul class="list-unstyled">
-                                    <li class="d-flex justify-content-between mb-4">
-                                        <img src="./img/Productos/jinx.jpg" alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-                                        <div class="card">
-                                            <div class="card-header d-flex justify-content-between p-3">
-                                                <p class="fw-bold mb-0">Leo Hernandez</p>
-                                                <p class="text-muted small mb-0"><i class="far fa-clock"></i> 12 minutos
-                                                </p>
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="mb-0">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                    eiusmod tempor incididunt ut
-                                                    labore et dolore magna aliqua.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="bg-white mb-3">
-                                        <div class="form-outline">
-                                            <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
-                                        </div>
-                                    </li>
-                                    <button type="button" class="btn btn-info btn-rounded float-end">Enviar</button>
-                                </ul>
-
-                            </div>
+                                </li>
+                                <li class="bg-white mb-3">
+                                    <div class="form-outline">
+                                        <textarea class="form-control" id="textAreaExample2" rows="4"></textarea>
+                                    </div>
+                                </li>
+                                <button type="button" class="btn btn-info btn-rounded float-end">Enviar</button>
+                            </ul>
 
                         </div>
 
                     </div>
-                </section>
-            </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                <div class="my-3 p-3 bg-white rounded box-shadow">
-                    <h3 class=" pb-2 mb-0">Tus compras/ventas</h3>
-                    <i class="bi bi-lock"></i>
-                    <div class="border-bottom border-gray pb-2 mb-0">
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img alt="32x32" src="./img/globos.jpg" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Globos rosas</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
-                                </div>
-                            </div>
-                            <span class="d-block">322.00$</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img alt="32x32" src="./img/slider4.png" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Varas de neon para fiesta</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
-                                </div>
-                            </div>
-                            <span class="d-block">10.00$</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <img alt="32x32" src="./img/producto.jpg" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px; cursor:pointer;">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Pluma de varios colores</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
-                                </div>
-                            </div>
-                            <span class="d-block">423.00$</span>
-                        </div>
-                    </div>
-                    <small class="d-block text-right mt-3">
-                    </small>
+
                 </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-extra" role="tabpanel" aria-labelledby="v-pills-extra-tab">
-                <div class="my-3 p-3 bg-white rounded box-shadow">
-                    <h3 class=" pb-2 mb-0">Tus ventas</h3>
-                    <div class="border-bottom border-gray pb-2 mb-0">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#venderModal">Crear una
-                            nueva</button>
-                    </div>
-                    <i class="bi bi-lock"></i>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Globos rosas</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                </div>
-                            </div>
-                            <span class="d-block">322.00$</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Varas de neon para fiesta</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                </div>
-                            </div>
-                            <span class="d-block">10.00$</span>
-                        </div>
-                    </div>
-                    <div class="media text-muted pt-3">
-                        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                            <div class="d-flex justify-content-between align-items-center w-100">
-                                <strong class="text-gray-dark">Pluma de varios colores</strong>
-                                <div>
-                                    <a href="#">Detalles</a>
-                                </div>
-                            </div>
-                            <span class="d-block">423.00$</span>
-                        </div>
-                    </div>
-                    <small class="d-block text-right mt-3">
-                    </small>
+            </section>
+        </div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h3 class=" pb-2 mb-0">Tus compras/ventas</h3>
+                <i class="bi bi-lock"></i>
+                <div class="border-bottom border-gray pb-2 mb-0">
                 </div>
+                <div class="media text-muted pt-3">
+                    <img alt="32x32" src="./img/globos.jpg" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Globos rosas</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
+                            </div>
+                        </div>
+                        <span class="d-block">322.00$</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <img alt="32x32" src="./img/slider4.png" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Varas de neon para fiesta</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
+                            </div>
+                        </div>
+                        <span class="d-block">10.00$</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <img alt="32x32" src="./img/producto.jpg" class="mr-2 rounded" data-holder-rendered="true" style="width: 96px; height: 96px; cursor:pointer;">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Pluma de varios colores</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#rateModal">Calificar</a>
+                            </div>
+                        </div>
+                        <span class="d-block">423.00$</span>
+                    </div>
+                </div>
+                <small class="d-block text-right mt-3">
+                </small>
             </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-extra" role="tabpanel" aria-labelledby="v-pills-extra-tab">
+            <div class="my-3 p-3 bg-white rounded box-shadow">
+                <h3 class=" pb-2 mb-0">Tus ventas</h3>
+                <div class="border-bottom border-gray pb-2 mb-0">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#venderModal">Crear una
+                        nueva</button>
+                </div>
+                <i class="bi bi-lock"></i>
+                <div class="media text-muted pt-3">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Globos rosas</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                            </div>
+                        </div>
+                        <span class="d-block">322.00$</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Varas de neon para fiesta</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                            </div>
+                        </div>
+                        <span class="d-block">10.00$</span>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark">Pluma de varios colores</strong>
+                            <div>
+                                <a href="#">Detalles</a>
+                            </div>
+                        </div>
+                        <span class="d-block">423.00$</span>
+                    </div>
+                </div>
+                <small class="d-block text-right mt-3">
+                </small>
+            </div>
+        </div>
         </div>
 
 
@@ -715,7 +707,7 @@ include_once './php/connection.php'
                 contentType: false,
                 processData: false,
                 success: function(result) {
-                    
+
                     if (result === "creado") {
                         swal({
                             icon: 'success',
@@ -737,6 +729,7 @@ include_once './php/connection.php'
             })
         })
     </script>
+    <script src="./js/phpChoicesPerfil.js"></script>
 
 </body>
 
