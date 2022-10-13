@@ -267,21 +267,21 @@
     <header class="p-3 border-bottom">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <a href="./index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
             <img class="bi me-2" width="40" height="32" src="./img/productos2/logoshop.png" alt="">
           </a>
 
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="./index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
-            <li><a href="./platillaProductos.html" class="nav-link px-2 link-dark">Productos</a></li>
-            <li><a href="./loginNew.html" class="nav-link px-2 link-dark">Conviertete en vendedor</a></li>
+            <li><a href="./index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
+            <li><a href="./pagProductos.php" class="nav-link px-2 link-dark">Productos</a></li>
+            <li><a href="./loginNew.php" class="nav-link px-2 link-dark">Conviertete en vendedor</a></li>
           </ul>
 
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
             <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
           </form>
 
-          <!-- If there is an user signed in, we hide the buttons and show his profile picture -->
+          <!-- If there is a user signed in, we hide the buttons and show his profile picture -->
           <?php
           if (isset($_SESSION['user'])) {
             echo "<div class='dropdown text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
@@ -289,7 +289,7 @@
                             <img src='./img/Productos/jinx.jpg' alt='mdo' width='32' height='32' class='rounded-circle'>
                         </a>
                         <ul class='dropdown-menu text-small'>
-                            <li><a class='dropdown-item' href='./perfil.html'>Perfil</a></li>
+                            <li><a class='dropdown-item' href='./perfil.php'>Perfil</a></li>
                             <li>
                                 <hr class='dropdown-divider'>
                             </li>
@@ -298,15 +298,15 @@
                     </div>";
           } else {
             echo "<div class='col-11 text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
-                        <a href='./loginNew.html'><button type='button' class='btn btn-outline-primary me-2' style='border: #f9af23; color: #f9af23;'>Inicia sesión</button></a>
-                        <a href='./loginNew.html'><button type='button' class='btn btn-primary' style='background-color: #f9af23; color: #ffffff; border-color: black;'>Registrate</button></a>
+                        <a href='./loginNew.php'><button type='button' class='btn btn-outline-primary me-2' style='border: #f9af23; color: #f9af23;'>Inicia sesión</button></a>
+                        <a href='./loginNew.php'><button type='button' class='btn btn-primary' style='background-color: #f9af23; color: #ffffff; border-color: black;'>Registrate</button></a>
                     </div>";
           }
           ?>
 
 
           <div class="btn-group">
-            <a href="./carrito.html"><button type="button" class="btn btn-outline-secondary">
+            <a href="./carrito.php"><button type="button" class="btn btn-outline-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                   <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
                   </path>
@@ -328,7 +328,7 @@
               <div class="product-col-content">
                 <h2 class="md-title">Lo mejor de hoy </h2>
                 <p class="text-light">Explora el catalogo de la mejor página para la compra de productos en linea</p>
-                <a href="./platillaProductos.html"><button type="button" class="btn-dark" style="background-color: #feab0f;">Explora ahora</button></a>
+                <a href="./pagProductos.php"><button type="button" class="btn-dark" style="background-color: #feab0f;">Explora ahora</button></a>
               </div>
             </div>
 
@@ -338,7 +338,7 @@
                 <div class="product-col-content">
                   <h2 class="sm-title">Productos de temporada </h2>
                   <h2 class="md-title">Colección de verano </h2>
-                  <a href="./platillaProductos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+                  <a href="./pagProductos.php?categoria=verano"><button type="button" class="btn-dark">Compra ahora</button></a>
                 </div>
               </div>
 
@@ -348,7 +348,7 @@
                   <div class="product-col-content">
                     <h2 class="sm-title">Destacados</h2>
                     <h2 class="md-title">Los más vendidos </h2>
-                    <a href="./platillaProductos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+                    <a href="./pagProductos.php?categoria=masVendidos"><button type="button" class="btn-dark">Compra ahora</button></a>
                   </div>
                 </div>
                 <!-- right -->
@@ -356,7 +356,7 @@
                   <div class="product-col-content">
                     <h2 class="sm-title">Tecnologia </h2>
                     <h2 class="md-title">Consolas y computadoras </h2>
-                    <a href="./platillaProductos.html"><button type="button" class="btn-dark">Compra ahora</button></a>
+                    <a href="./pagProductos.php?categoria=tecnologia"><button type="button" class="btn-dark">Compra ahora</button></a>
 
                   </div>
                 </div>
@@ -1006,7 +1006,7 @@
 
         <ul class="list">
           <li>
-            <a href="./index.html">Inicio</a>
+            <a href="./index.php">Inicio</a>
           </li>
           <li>
             <a href="#">Servicios</a>

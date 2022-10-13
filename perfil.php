@@ -1,6 +1,7 @@
 <?php
 session_start();
-include_once './php/usersAPI.php'
+include_once './php/usersAPI.php';
+include_once './php/wishlistsAPI.php';
 ?>
 
 <!doctype html>
@@ -13,7 +14,7 @@ include_once './php/usersAPI.php'
     <link rel="icon" href="./img/productos2/logoshop.png">
     <!-- CDN -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
@@ -87,22 +88,29 @@ include_once './php/usersAPI.php'
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST" id="crearWishlist" action="./php/hUploadWishlist.php">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input name="nombreWSL" type="text" class="form-control" id="recipient-name">
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Descripción:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <textarea name="descWSL" class="form-control" id="message-text"></textarea>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <i class="fa-solid fa-lock"></i> Privada
+                            </label>
+                            <input name="wishlistPrivada" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit"" class="btn btn-primary">Crear wishlist</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Crear wishlist</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -274,21 +282,21 @@ include_once './php/usersAPI.php'
     <header class="p-3 border-bottom">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                <a href="./index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <img class="bi me-2" width="40" height="32" src="./img/productos2/logoshop.png" alt="">
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="./index.html" class="nav-link px-2 link-secondary">Inicio</a></li>
-                    <li><a href="./platillaProductos.html" class="nav-link px-2 link-dark">Productos</a></li>
-                    <li><a href="./loginNew.html" class="nav-link px-2 link-dark">Conviertete en vendedor</a></li>
+                    <li><a href="./index.php" class="nav-link px-2 link-secondary">Inicio</a></li>
+                    <li><a href="./pagProductos.php" class="nav-link px-2 link-dark">Productos</a></li>
+                    <li><a href="./loginNew.php" class="nav-link px-2 link-dark">Conviertete en vendedor</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
                 </form>
 
-                <!-- If there's an user signed in, we hide the buttons and show his profile picture -->
+                <!-- If there is a user signed in, we hide the buttons and show his profile picture -->
                 <?php
                 if (isset($_SESSION['user'])) {
                     echo "<div class='dropdown text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
@@ -296,24 +304,24 @@ include_once './php/usersAPI.php'
                             <img src='./img/Productos/jinx.jpg' alt='mdo' width='32' height='32' class='rounded-circle'>
                         </a>
                         <ul class='dropdown-menu text-small'>
-                            <li><a class='dropdown-item' href='./perfil.html'>Perfil</a></li>
+                            <li><a class='dropdown-item' href='./perfil.php'>Perfil</a></li>
                             <li>
                                 <hr class='dropdown-divider'>
                             </li>
-                            <li><a class='dropdown-item' href='./php/logout.php'>Salir</a></li>
+                            <li><a class='dropdown-item' href='./landingPage.html'>Salir</a></li>
                         </ul>
                     </div>";
                 } else {
                     echo "<div class='col-11 text-end col-lg-auto mb-3 mb-lg-0 me-lg-3'>
-                        <a href='./loginNew.html'><button type='button' class='btn btn-outline-primary me-2' style='border: #f9af23; color: #f9af23;'>Inicia sesión</button></a>
-                        <a href='./loginNew.html'><button type='button' class='btn btn-primary' style='background-color: #f9af23; color: #ffffff; border-color: black;'>Registrate</button></a>
+                        <a href='./loginNew.php'><button type='button' class='btn btn-outline-primary me-2' style='border: #f9af23; color: #f9af23;'>Inicia sesión</button></a>
+                        <a href='./loginNew.php'><button type='button' class='btn btn-primary' style='background-color: #f9af23; color: #ffffff; border-color: black;'>Registrate</button></a>
                     </div>";
                 }
                 ?>
 
 
                 <div class="btn-group">
-                    <a href="./carrito.html"><button type="button" class="btn btn-outline-secondary">
+                    <a href="./carrito.php"><button type="button" class="btn btn-outline-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
                                 </path>
@@ -335,15 +343,14 @@ include_once './php/usersAPI.php'
             <ul class="nav nav-pills flex-column mb-auto" role="tablist" id="myTab" aria-orientation="vertical">
                 <li class="nav-item">
                     <?php
-                    if(isset($_GET['seccion'])){
-                    if ($_GET['seccion'] != 'inicio') {
-                        echo '<a href="#" class="nav-link link-dark " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                    if (isset($_GET['seccion'])) {
+                        if ($_GET['seccion'] != 'inicio') {
+                            echo '<a href="#" class="nav-link link-dark " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                        } else {
+                            echo '<a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
+                        }
                     } else {
                         echo '<a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
-                    }
-                    }else{
-                        echo '<a href="#" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">';
-                    
                     }
                     ?>
                     <svg class="bi pe-none me-2" width="16" height="16">
@@ -354,14 +361,14 @@ include_once './php/usersAPI.php'
                 </li>
                 <li>
                     <?php
-                    if(isset($_GET['seccion'])){
-                    if ($_GET['seccion'] == 'wishlist') {
-                        echo '<a href="#" class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
+                    if (isset($_GET['seccion'])) {
+                        if ($_GET['seccion'] == 'wishlist') {
+                            echo '<a href="#" class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
+                        } else {
+                            echo '<a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
+                        }
                     } else {
                         echo '<a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';
-                    }
-                    }else{
-                        echo '<a href="#" class="nav-link link-dark" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">';             
                     }
                     ?>
 
@@ -403,92 +410,64 @@ include_once './php/usersAPI.php'
         <div class="tab-content" id="v-pills-tabContent">
             <!-- Datos de usuario -->
             <?php
-                if(isset($_GET['seccion'])){
-                    if ($_GET['seccion'] != 'inicio') {
-                        echo '<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
-                    }
-                    else{
-                        echo '<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
-                    }
-                }else{
+            if (isset($_GET['seccion'])) {
+                if ($_GET['seccion'] != 'inicio') {
+                    echo '<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
+                } else {
                     echo '<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
                 }
+            } else {
+                echo '<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">';
+            }
             ?>
 
-            
-                <div class="container">
-                    <h1 class="mb-5"></h1>
-                    <div class="bg-white shadow rounded-lg d-block d-sm-flex">
 
-                        <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-                            <form action="./php/actulizarPerfilHandler.php" method="POST" enctype="multipart/form-data" id="changeProfile">
-                                <?php
-                                $LoadUserAPI = new API_Users;
-                                $LoadUserAPI->LoadUserProfile();
-                                ?>
-                            </form>
-                        </div>
+            <div class="container">
+                <h1 class="mb-5"></h1>
+                <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+
+                    <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+                        <form action="./php/actulizarPerfilHandler.php" method="POST" enctype="multipart/form-data" id="changeProfile">
+                            <?php
+                            $LoadUserAPI = new API_Users;
+                            $LoadUserAPI->LoadUserProfile();
+                            ?>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- Las wishlists -->
-            <?php
-            
-            if(isset($_GET['seccion'])){
+        </div>
+        <!-- Las wishlists -->
+        <?php
+
+        if (isset($_GET['seccion'])) {
             if ($_GET['seccion'] == 'wishlist') {
                 echo '<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
             } else {
                 echo '<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
             }
-            }else{
-                echo '<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
-            }
-            ?>
+        } else {
+            echo '<div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">';
+        }
+        ?>
 
 
-            <div class="my-3 p-3 bg-white rounded box-shadow">
-                <h3 class=" pb-2 mb-0">Tus wishlists</h3>
-                <i class="bi bi-lock"></i>
-                <div class="border-bottom border-gray pb-2 mb-0">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Publicar
-                        producto</button>
-                </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <strong class="text-gray-dark">Lista de cumpleaños</strong>
-                            <a href="#">Eliminar</a>
-                        </div>
-                        <span class="d-block">23 productos</span>
-                    </div>
-                </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773e%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773e%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <strong class="text-gray-dark">Creando pc</strong>
-                            <i class="bi bi-lock"></i>
-                            <a href="#"> Eliminar</a>
-
-                        </div>
-                        <span class="d-block">23 productos</span>
-                    </div>
-                </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1833e55773f%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1833e55773f%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.541290283203125%22%20y%3D%2216.9%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="width: 32px; height: 32px;">
-                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <strong class="text-gray-dark">Para la chamba</strong>
-                            <a href="#">Eliminar</a>
-                        </div>
-                        <span class="d-block">23 productos</span>
-                    </div>
-                </div>
-                <small class="d-block text-right mt-3">
-                </small>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <h3 class=" pb-2 mb-0">Tus wishlists</h3>
+            <i class="bi bi-lock"></i>
+            <div class="border-bottom border-gray pb-2 mb-0">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"> </i> Crear wishlist</button>
             </div>
+            <!-- Llamamos a la base de datos y traemos las wishlists del SESSION_USER -->
+            <?php
+                //Si el usuario no tiene wishlists... TODO
+
+                $WishlistAPI = new API_Wishlists;
+                $WishlistAPI->PrintUserWishlists();
+            ?>
+            <small class="d-block text-right mt-3">
+            </small>
+        </div>
         </div>
         <!-- Mensajes -->
         <div class="tab-pane fade chat-place" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

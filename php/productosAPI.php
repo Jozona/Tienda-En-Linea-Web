@@ -158,7 +158,7 @@
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#mensajeModal">
                           Enviar mensaje a vendedor
                         </button>
-                        <button class="btn btn-success">Agregar a wishlist</button>
+                        <button  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar a wishlist</button>
                         <button type="button" class="btn">Comprar</button>
                         
                       </div>

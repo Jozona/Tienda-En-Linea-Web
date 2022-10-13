@@ -45,3 +45,38 @@ $('#changeProfile').on('submit', function (e) {
         }
       })
 })
+
+//Funcion ajax para la creacion de una WISHLIST
+
+$('#crearWishlist').on('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+        type: 'POST',
+        url: $('#crearWishlist').attr('action'),
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(result) {
+
+            if (result === 'creado') {
+                swal({
+                    icon: 'success',
+                    title: 'Wishlist creada',
+                }).then((value) => {
+                    window.location.href = "perfil.php?seccion=wishlist";
+                });
+            } else {
+                swal({
+                    icon: 'error',
+                    title: 'No fue posible actualizar tu perfil',
+                }).then((value) => {
+                    window.location.href = "perfil.php?seccion=wishlist";
+                });
+            }
+
+            if (condition) {} else {}
+        }
+    })
+})
